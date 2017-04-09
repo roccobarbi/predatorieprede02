@@ -1,2 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Aw7VcB1cEeeCnJy0HcQNBg" name="NewModel"/>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Aw7VcB1cEeeCnJy0HcQNBg" name="NewModel">
+  <packagedElement xmi:type="uml:Class" xmi:id="_B0nKkB1dEeeCnJy0HcQNBg" name="Organismo" isAbstract="true">
+    <ownedAttribute xmi:id="_E-ynkB1dEeeCnJy0HcQNBg" name="name" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_kza20B1dEeeCnJy0HcQNBg" name="age" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qADTwB1dEeeCnJy0HcQNBg" name="reproductiveCycle" visibility="private" isReadOnly="true">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_2ElcoB1dEeeCnJy0HcQNBg" name="nextSpawn" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_9YzRIB1dEeeCnJy0HcQNBg" name="chooseMove" isAbstract="true">
+      <ownedParameter xmi:id="__iDcoB1dEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
+      <ownedParameter xmi:id="_EGMWMB1eEeeCnJy0HcQNBg" name="posX">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Ig8qQB1eEeeCnJy0HcQNBg" name="posY">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_0N-D0B1eEeeCnJy0HcQNBg" name="direction">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_huWt4B1eEeeCnJy0HcQNBg" name="chooseSpawn" isAbstract="true">
+      <ownedParameter xmi:id="_lO7RoB1eEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
+      <ownedParameter xmi:id="_nYoJEB1eEeeCnJy0HcQNBg" name="posX">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_qxm3EB1eEeeCnJy0HcQNBg" name="posY">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_vhmbUB1eEeeCnJy0HcQNBg" name="direction" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_S5BRUB1eEeeCnJy0HcQNBg" name="Predatore">
+    <generalization xmi:id="_lBp1MB1fEeeCnJy0HcQNBg" general="_B0nKkB1dEeeCnJy0HcQNBg"/>
+    <ownedAttribute xmi:id="_Vz5HAB1eEeeCnJy0HcQNBg" name="hungerCycle" visibility="private" isReadOnly="true">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_bomQkB1eEeeCnJy0HcQNBg" name="hunger" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_HSh54B1fEeeCnJy0HcQNBg" name="chooseMove">
+      <ownedParameter xmi:id="_IRzlkB1fEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
+      <ownedParameter xmi:id="_KL23cB1fEeeCnJy0HcQNBg" name="posX">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_MQgPwB1fEeeCnJy0HcQNBg" name="posY">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Of6toB1fEeeCnJy0HcQNBg" name="direction" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Rt7hwB1fEeeCnJy0HcQNBg" name="chooseSpawn">
+      <ownedParameter xmi:id="_T4THkB1fEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
+      <ownedParameter xmi:id="_V1E9UB1fEeeCnJy0HcQNBg" name="posX">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_X-QQUB1fEeeCnJy0HcQNBg" name="posY">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_afalgB1fEeeCnJy0HcQNBg" name="direction" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_dJfmIB1fEeeCnJy0HcQNBg" name="eat"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_CHJaIB1fEeeCnJy0HcQNBg" name="Preda">
+    <generalization xmi:id="_l-TqsB1fEeeCnJy0HcQNBg" general="_B0nKkB1dEeeCnJy0HcQNBg"/>
+    <ownedOperation xmi:id="_oktsQB1fEeeCnJy0HcQNBg" name="chooseMove">
+      <ownedParameter xmi:id="_qGdy4B1fEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
+      <ownedParameter xmi:id="_roK2MB1fEeeCnJy0HcQNBg" name="posX">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_t7ZdEB1fEeeCnJy0HcQNBg" name="posY">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_wctjQB1fEeeCnJy0HcQNBg" name="direction" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_zHfHcB1fEeeCnJy0HcQNBg" name="chooseSpawn">
+      <ownedParameter xmi:id="_0RsQwB1fEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
+      <ownedParameter xmi:id="_2d5CkB1fEeeCnJy0HcQNBg" name="posX">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_5ryh8B1fEeeCnJy0HcQNBg" name="posY">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_8KfZAB1fEeeCnJy0HcQNBg" name="direction" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_VKmngB1gEeeCnJy0HcQNBg" name="linkedOrganisms"/>
+</uml:Model>

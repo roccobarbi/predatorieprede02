@@ -94,7 +94,19 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UzZ9lh1iEeeCnJy0HcQNBg" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_pQklUB1iEeeCnJy0HcQNBg" name="PlayingField"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_pQklUB1iEeeCnJy0HcQNBg" name="PlayingField">
+    <ownedOperation xmi:id="_iZVVwB4oEee4f9ILU2CTjQ" name="lookAround">
+      <ownedParameter xmi:id="_mPyp8B4oEee4f9ILU2CTjQ" name="posX">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_q-M50B4oEee4f9ILU2CTjQ" name="posY">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_tXY-wB4oEee4f9ILU2CTjQ" type="_B0nKkB1dEeeCnJy0HcQNBg">
+        <name xsi:nil="true"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_x6H1EB1iEeeCnJy0HcQNBg" name="A_field_occupant" memberEnd="_x6H1ER1iEeeCnJy0HcQNBg _x6RmER1iEeeCnJy0HcQNBg" navigableOwnedEnd="_x6RmER1iEeeCnJy0HcQNBg">
     <ownedEnd xmi:id="_x6H1ER1iEeeCnJy0HcQNBg" name="field" type="_pQklUB1iEeeCnJy0HcQNBg" association="_x6H1EB1iEeeCnJy0HcQNBg">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x6H1Eh1iEeeCnJy0HcQNBg" value="1"/>
@@ -117,6 +129,85 @@
     <ownedEnd xmi:id="_n1b2tB2nEeeR8v7spXNIBA" name="self" type="_S5BRUB1eEeeCnJy0HcQNBg" association="_n1b2sB2nEeeR8v7spXNIBA">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n1b2tR2nEeeR8v7spXNIBA" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n1b2th2nEeeR8v7spXNIBA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_KuRWAB4lEee4f9ILU2CTjQ" name="NewModel">
+    <ownedAttribute xmi:id="_VsldsB4lEee4f9ILU2CTjQ" name="LinkedOrganism" type="_VKmngB1gEeeCnJy0HcQNBg"/>
+    <ownedAttribute xmi:id="_QR4oMB4oEee4f9ILU2CTjQ" name="LinkedOrganisms" type="_bWd3UB4lEee4f9ILU2CTjQ"/>
+    <ownedAttribute xmi:id="_Y52jkB4oEee4f9ILU2CTjQ" name="PlayingField" type="_pQklUB1iEeeCnJy0HcQNBg"/>
+    <ownedAttribute xmi:id="_-hghYB4oEee4f9ILU2CTjQ" name="Organismo" type="_B0nKkB1dEeeCnJy0HcQNBg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__SrfoB4oEee4f9ILU2CTjQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__SrfoR4oEee4f9ILU2CTjQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_CcS78B4pEee4f9ILU2CTjQ" name="Preda" type="_CHJaIB1fEeeCnJy0HcQNBg"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UefLgR4oEee4f9ILU2CTjQ" name="act"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_zQ03UB4oEee4f9ILU2CTjQ" name="lookAround"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_D_iQUR4pEee4f9ILU2CTjQ" name="chooseMove"/>
+    <lifeline xmi:id="_QR4oMR4oEee4f9ILU2CTjQ" name="LinkedOrganisms" represents="_QR4oMB4oEee4f9ILU2CTjQ" coveredBy="_UefLgx4oEee4f9ILU2CTjQ _UefLhx4oEee4f9ILU2CTjQ"/>
+    <lifeline xmi:id="_VsmEwB4lEee4f9ILU2CTjQ" name="LinkedOrganism" represents="_VsldsB4lEee4f9ILU2CTjQ" coveredBy="_UefLhB4oEee4f9ILU2CTjQ _UefLhh4oEee4f9ILU2CTjQ _UefLhR4oEee4f9ILU2CTjQ _zQ03Uh4oEee4f9ILU2CTjQ _zQ03Vh4oEee4f9ILU2CTjQ _D_iQUx4pEee4f9ILU2CTjQ _D_iQVx4pEee4f9ILU2CTjQ"/>
+    <lifeline xmi:id="_Y52jkR4oEee4f9ILU2CTjQ" name="PlayingField" represents="_Y52jkB4oEee4f9ILU2CTjQ" coveredBy="_zQ03Ux4oEee4f9ILU2CTjQ _zQ03VR4oEee4f9ILU2CTjQ _zQ03VB4oEee4f9ILU2CTjQ"/>
+    <lifeline xmi:id="_CcS78R4pEee4f9ILU2CTjQ" name="Preda" represents="_CcS78B4pEee4f9ILU2CTjQ" coveredBy="_D_iQVB4pEee4f9ILU2CTjQ _D_iQVh4pEee4f9ILU2CTjQ _D_iQVR4pEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_UefLgx4oEee4f9ILU2CTjQ" name="act_sender" covered="_QR4oMR4oEee4f9ILU2CTjQ" message="_UefLgB4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_UefLhB4oEee4f9ILU2CTjQ" name="act_receiver" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_UefLgB4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_UefLhh4oEee4f9ILU2CTjQ" name="act" covered="_VsmEwB4lEee4f9ILU2CTjQ" finish="_UefLhR4oEee4f9ILU2CTjQ" start="_UefLhB4oEee4f9ILU2CTjQ" behavior="_UefLgR4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zQ03Uh4oEee4f9ILU2CTjQ" name="lookAround_sender" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_zQrGUB4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zQ03Ux4oEee4f9ILU2CTjQ" name="lookAround_receiver" covered="_Y52jkR4oEee4f9ILU2CTjQ" message="_zQrGUB4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_zQ03VR4oEee4f9ILU2CTjQ" name="lookAround" covered="_Y52jkR4oEee4f9ILU2CTjQ" finish="_zQ03VB4oEee4f9ILU2CTjQ" start="_zQ03Ux4oEee4f9ILU2CTjQ" behavior="_zQ03UB4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zQ03VB4oEee4f9ILU2CTjQ" name="lookAround_reply_sender" covered="_Y52jkR4oEee4f9ILU2CTjQ" message="_zQ03UR4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zQ03Vh4oEee4f9ILU2CTjQ" name="lookAround_reply_receiver" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_zQ03UR4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_D_iQUx4pEee4f9ILU2CTjQ" name="chooseMove_sender" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_D_iQUB4pEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_D_iQVB4pEee4f9ILU2CTjQ" name="chooseMove_receiver" covered="_CcS78R4pEee4f9ILU2CTjQ" message="_D_iQUB4pEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_D_iQVh4pEee4f9ILU2CTjQ" name="chooseMove" covered="_CcS78R4pEee4f9ILU2CTjQ" finish="_D_iQVR4pEee4f9ILU2CTjQ" start="_D_iQVB4pEee4f9ILU2CTjQ" behavior="_D_iQUR4pEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_D_iQVR4pEee4f9ILU2CTjQ" name="chooseMove_reply_sender" covered="_CcS78R4pEee4f9ILU2CTjQ" message="_D_iQUh4pEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_D_iQVx4pEee4f9ILU2CTjQ" name="chooseMove_reply_receiver" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_D_iQUh4pEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_UefLhR4oEee4f9ILU2CTjQ" name="act_reply_sender" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_UefLgh4oEee4f9ILU2CTjQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_UefLhx4oEee4f9ILU2CTjQ" name="act_reply_receiver" covered="_QR4oMR4oEee4f9ILU2CTjQ" message="_UefLgh4oEee4f9ILU2CTjQ"/>
+    <message xmi:id="_UefLgB4oEee4f9ILU2CTjQ" name="act" receiveEvent="_UefLhB4oEee4f9ILU2CTjQ" sendEvent="_UefLgx4oEee4f9ILU2CTjQ" signature="_VaMf4B2mEeeR8v7spXNIBA"/>
+    <message xmi:id="_UefLgh4oEee4f9ILU2CTjQ" name="act_reply" messageSort="reply" receiveEvent="_UefLhx4oEee4f9ILU2CTjQ" sendEvent="_UefLhR4oEee4f9ILU2CTjQ"/>
+    <message xmi:id="_zQrGUB4oEee4f9ILU2CTjQ" name="lookAround" receiveEvent="_zQ03Ux4oEee4f9ILU2CTjQ" sendEvent="_zQ03Uh4oEee4f9ILU2CTjQ" signature="_iZVVwB4oEee4f9ILU2CTjQ"/>
+    <message xmi:id="_zQ03UR4oEee4f9ILU2CTjQ" name="lookAround_reply" messageSort="reply" receiveEvent="_zQ03Vh4oEee4f9ILU2CTjQ" sendEvent="_zQ03VB4oEee4f9ILU2CTjQ"/>
+    <message xmi:id="_D_iQUB4pEee4f9ILU2CTjQ" name="chooseMove" receiveEvent="_D_iQVB4pEee4f9ILU2CTjQ" sendEvent="_D_iQUx4pEee4f9ILU2CTjQ" signature="_oktsQB1fEeeCnJy0HcQNBg"/>
+    <message xmi:id="_D_iQUh4pEee4f9ILU2CTjQ" name="chooseMove_reply" messageSort="reply" receiveEvent="_D_iQVx4pEee4f9ILU2CTjQ" sendEvent="_D_iQVR4pEee4f9ILU2CTjQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_bWd3UB4lEee4f9ILU2CTjQ" name="LinkedOrganisms">
+    <ownedAttribute xmi:id="_1e2DgB4nEee4f9ILU2CTjQ" name="length" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3U60UB4nEee4f9ILU2CTjQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_B1hsUB4oEee4f9ILU2CTjQ" name="add">
+      <ownedParameter xmi:id="_DYLK0B4oEee4f9ILU2CTjQ" name="organismo" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_F9MFQB4oEee4f9ILU2CTjQ" name="remove">
+      <ownedParameter xmi:id="_HK7qwB4oEee4f9ILU2CTjQ" name="organismo" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
+      <ownedParameter xmi:id="_JTxmkB4oEee4f9ILU2CTjQ" type="_B0nKkB1dEeeCnJy0HcQNBg" direction="return">
+        <name xsi:nil="true"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_nk7_UB4lEee4f9ILU2CTjQ" name="first_linkedOrganism" memberEnd="_nk7_VB4lEee4f9ILU2CTjQ" navigableOwnedEnd="_nk7_VB4lEee4f9ILU2CTjQ">
+    <ownedEnd xmi:id="_nk7_VB4lEee4f9ILU2CTjQ" name="first" type="_VKmngB1gEeeCnJy0HcQNBg" association="_nk7_UB4lEee4f9ILU2CTjQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nk7_VR4lEee4f9ILU2CTjQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nk7_Vh4lEee4f9ILU2CTjQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_0-SwoB4mEee4f9ILU2CTjQ" name="A_first_linkedOrganisms" memberEnd="_0-SwoR4mEee4f9ILU2CTjQ _0-SwpB4mEee4f9ILU2CTjQ" navigableOwnedEnd="_0-SwpB4mEee4f9ILU2CTjQ">
+    <ownedEnd xmi:id="_0-SwoR4mEee4f9ILU2CTjQ" name="linkedOrganisms" type="_bWd3UB4lEee4f9ILU2CTjQ" association="_0-SwoB4mEee4f9ILU2CTjQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0-Swoh4mEee4f9ILU2CTjQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0-Swox4mEee4f9ILU2CTjQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_0-SwpB4mEee4f9ILU2CTjQ" name="first" type="_VKmngB1gEeeCnJy0HcQNBg" association="_0-SwoB4mEee4f9ILU2CTjQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0-SwpR4mEee4f9ILU2CTjQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0-Swph4mEee4f9ILU2CTjQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pO7xEB4nEee4f9ILU2CTjQ" name="A_last_linkedOrganisms" memberEnd="_pO7xER4nEee4f9ILU2CTjQ _pO7xFB4nEee4f9ILU2CTjQ" navigableOwnedEnd="_pO7xFB4nEee4f9ILU2CTjQ">
+    <ownedEnd xmi:id="_pO7xER4nEee4f9ILU2CTjQ" name="linkedOrganisms" type="_bWd3UB4lEee4f9ILU2CTjQ" association="_pO7xEB4nEee4f9ILU2CTjQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pO7xEh4nEee4f9ILU2CTjQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pO7xEx4nEee4f9ILU2CTjQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_pO7xFB4nEee4f9ILU2CTjQ" name="last" type="_VKmngB1gEeeCnJy0HcQNBg" association="_pO7xEB4nEee4f9ILU2CTjQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pO7xFR4nEee4f9ILU2CTjQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pO7xFh4nEee4f9ILU2CTjQ" value="1"/>
     </ownedEnd>
   </packagedElement>
 </uml:Model>

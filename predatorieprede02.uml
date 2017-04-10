@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Aw7VcB1cEeeCnJy0HcQNBg" name="NewModel">
-  <packagedElement xmi:type="uml:Class" xmi:id="_B0nKkB1dEeeCnJy0HcQNBg" name="Organismo" isAbstract="true">
+  <packagedElement xmi:type="uml:Class" xmi:id="_B0nKkB1dEeeCnJy0HcQNBg" name="Organismo">
     <ownedAttribute xmi:id="_E-ynkB1dEeeCnJy0HcQNBg" name="name" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
     </ownedAttribute>
@@ -13,7 +13,7 @@
     <ownedAttribute xmi:id="_2ElcoB1dEeeCnJy0HcQNBg" name="nextSpawn" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
     </ownedAttribute>
-    <ownedOperation xmi:id="_9YzRIB1dEeeCnJy0HcQNBg" name="chooseMove" isAbstract="true">
+    <ownedOperation xmi:id="_9YzRIB1dEeeCnJy0HcQNBg" name="chooseMove">
       <ownedParameter xmi:id="__iDcoB1dEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
       <ownedParameter xmi:id="_EGMWMB1eEeeCnJy0HcQNBg" name="posX">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
@@ -25,7 +25,7 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:id="_huWt4B1eEeeCnJy0HcQNBg" name="chooseSpawn" isAbstract="true">
+    <ownedOperation xmi:id="_huWt4B1eEeeCnJy0HcQNBg" name="chooseSpawn">
       <ownedParameter xmi:id="_lO7RoB1eEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
       <ownedParameter xmi:id="_nYoJEB1eEeeCnJy0HcQNBg" name="posX">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -99,7 +99,7 @@
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_VKmngB1gEeeCnJy0HcQNBg" name="linkedOrganism">
+  <packagedElement xmi:type="uml:Class" xmi:id="_VKmngB1gEeeCnJy0HcQNBg" name="LinkedOrganism">
     <ownedAttribute xmi:id="_8j5QIB1iEeeCnJy0HcQNBg" name="posX" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
@@ -116,10 +116,11 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
+    <ownedOperation xmi:id="_VaMf4B2mEeeR8v7spXNIBA" name="act"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_zuHXsB1hEeeCnJy0HcQNBg" memberEnd="_zuHXsR1hEeeCnJy0HcQNBg _zuHXtB1hEeeCnJy0HcQNBg" navigableOwnedEnd="_zuHXtB1hEeeCnJy0HcQNBg">
     <name xsi:nil="true"/>
-    <ownedEnd xmi:id="_zuHXtB1hEeeCnJy0HcQNBg" name="organismo" visibility="public" type="_B0nKkB1dEeeCnJy0HcQNBg" association="_zuHXsB1hEeeCnJy0HcQNBg">
+    <ownedEnd xmi:id="_zuHXtB1hEeeCnJy0HcQNBg" name="self" visibility="public" type="_B0nKkB1dEeeCnJy0HcQNBg" association="_zuHXsB1hEeeCnJy0HcQNBg">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zuHXtR1hEeeCnJy0HcQNBg" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zuHXth1hEeeCnJy0HcQNBg" value="1"/>
     </ownedEnd>
@@ -147,6 +148,20 @@
     <ownedEnd xmi:id="_x6RmER1iEeeCnJy0HcQNBg" name="occupant" type="_VKmngB1gEeeCnJy0HcQNBg" association="_x6H1EB1iEeeCnJy0HcQNBg">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x6RmEh1iEeeCnJy0HcQNBg"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x6RmEx1iEeeCnJy0HcQNBg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_GYSKcB2nEeeR8v7spXNIBA" name="LinkedPredatore">
+    <generalization xmi:id="_LBme8B2nEeeR8v7spXNIBA" general="_VKmngB1gEeeCnJy0HcQNBg"/>
+    <ownedOperation xmi:id="_Nq8DQB2oEeeR8v7spXNIBA" name="manageHunger"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_n1b2sB2nEeeR8v7spXNIBA" name="A_linkedPredatore_predatore" memberEnd="_n1b2sR2nEeeR8v7spXNIBA _n1b2tB2nEeeR8v7spXNIBA" navigableOwnedEnd="_n1b2tB2nEeeR8v7spXNIBA">
+    <ownedEnd xmi:id="_n1b2sR2nEeeR8v7spXNIBA" name="linkedPredatore" type="_GYSKcB2nEeeR8v7spXNIBA" association="_n1b2sB2nEeeR8v7spXNIBA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n1b2sh2nEeeR8v7spXNIBA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n1b2sx2nEeeR8v7spXNIBA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_n1b2tB2nEeeR8v7spXNIBA" name="self" type="_S5BRUB1eEeeCnJy0HcQNBg" association="_n1b2sB2nEeeR8v7spXNIBA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n1b2tR2nEeeR8v7spXNIBA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n1b2th2nEeeR8v7spXNIBA" value="1"/>
     </ownedEnd>
   </packagedElement>
 </uml:Model>

@@ -15,24 +15,12 @@
     </ownedAttribute>
     <ownedOperation xmi:id="_9YzRIB1dEeeCnJy0HcQNBg" name="chooseMove">
       <ownedParameter xmi:id="__iDcoB1dEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
-      <ownedParameter xmi:id="_EGMWMB1eEeeCnJy0HcQNBg" name="posX">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
-      </ownedParameter>
-      <ownedParameter xmi:id="_Ig8qQB1eEeeCnJy0HcQNBg" name="posY">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
-      </ownedParameter>
       <ownedParameter xmi:id="_0N-D0B1eEeeCnJy0HcQNBg" name="direction">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_huWt4B1eEeeCnJy0HcQNBg" name="chooseSpawn">
       <ownedParameter xmi:id="_lO7RoB1eEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
-      <ownedParameter xmi:id="_nYoJEB1eEeeCnJy0HcQNBg" name="posX">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:id="_qxm3EB1eEeeCnJy0HcQNBg" name="posY">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
       <ownedParameter xmi:id="_vhmbUB1eEeeCnJy0HcQNBg" name="direction" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
@@ -48,24 +36,12 @@
     </ownedAttribute>
     <ownedOperation xmi:id="_HSh54B1fEeeCnJy0HcQNBg" name="chooseMove">
       <ownedParameter xmi:id="_IRzlkB1fEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
-      <ownedParameter xmi:id="_KL23cB1fEeeCnJy0HcQNBg" name="posX">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:id="_MQgPwB1fEeeCnJy0HcQNBg" name="posY">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
       <ownedParameter xmi:id="_Of6toB1fEeeCnJy0HcQNBg" name="direction" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_Rt7hwB1fEeeCnJy0HcQNBg" name="chooseSpawn">
       <ownedParameter xmi:id="_T4THkB1fEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
-      <ownedParameter xmi:id="_V1E9UB1fEeeCnJy0HcQNBg" name="posX">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:id="_X-QQUB1fEeeCnJy0HcQNBg" name="posY">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
       <ownedParameter xmi:id="_afalgB1fEeeCnJy0HcQNBg" name="direction" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
@@ -76,24 +52,12 @@
     <generalization xmi:id="_l-TqsB1fEeeCnJy0HcQNBg" general="_B0nKkB1dEeeCnJy0HcQNBg"/>
     <ownedOperation xmi:id="_oktsQB1fEeeCnJy0HcQNBg" name="chooseMove">
       <ownedParameter xmi:id="_qGdy4B1fEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
-      <ownedParameter xmi:id="_roK2MB1fEeeCnJy0HcQNBg" name="posX">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:id="_t7ZdEB1fEeeCnJy0HcQNBg" name="posY">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
       <ownedParameter xmi:id="_wctjQB1fEeeCnJy0HcQNBg" name="direction" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_zHfHcB1fEeeCnJy0HcQNBg" name="chooseSpawn">
       <ownedParameter xmi:id="_0RsQwB1fEeeCnJy0HcQNBg" name="grid" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
-      <ownedParameter xmi:id="_2d5CkB1fEeeCnJy0HcQNBg" name="posX">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:id="_5ryh8B1fEeeCnJy0HcQNBg" name="posY">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
       <ownedParameter xmi:id="_8KfZAB1fEeeCnJy0HcQNBg" name="direction" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
@@ -107,15 +71,6 @@
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
     <ownedOperation xmi:id="_I87CUB1jEeeCnJy0HcQNBg" name="kill"/>
-    <ownedOperation xmi:id="_J0_SwB1jEeeCnJy0HcQNBg" name="spawn">
-      <ownedParameter xmi:id="_K2tOcB1jEeeCnJy0HcQNBg" name="occupant" type="_B0nKkB1dEeeCnJy0HcQNBg"/>
-      <ownedParameter xmi:id="_No9ToB1jEeeCnJy0HcQNBg" name="posX">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:id="_Py_iQB1jEeeCnJy0HcQNBg" name="posY">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-    </ownedOperation>
     <ownedOperation xmi:id="_VaMf4B2mEeeR8v7spXNIBA" name="act"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_zuHXsB1hEeeCnJy0HcQNBg" memberEnd="_zuHXsR1hEeeCnJy0HcQNBg _zuHXtB1hEeeCnJy0HcQNBg" navigableOwnedEnd="_zuHXtB1hEeeCnJy0HcQNBg">
@@ -152,7 +107,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_GYSKcB2nEeeR8v7spXNIBA" name="LinkedPredatore">
     <generalization xmi:id="_LBme8B2nEeeR8v7spXNIBA" general="_VKmngB1gEeeCnJy0HcQNBg"/>
-    <ownedOperation xmi:id="_Nq8DQB2oEeeR8v7spXNIBA" name="manageHunger"/>
+    <ownedOperation xmi:id="_Nq8DQB2oEeeR8v7spXNIBA" name="act"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_n1b2sB2nEeeR8v7spXNIBA" name="A_linkedPredatore_predatore" memberEnd="_n1b2sR2nEeeR8v7spXNIBA _n1b2tB2nEeeR8v7spXNIBA" navigableOwnedEnd="_n1b2tB2nEeeR8v7spXNIBA">
     <ownedEnd xmi:id="_n1b2sR2nEeeR8v7spXNIBA" name="linkedPredatore" type="_GYSKcB2nEeeR8v7spXNIBA" association="_n1b2sB2nEeeR8v7spXNIBA">

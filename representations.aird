@@ -156,10 +156,6 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_TNbo0R1jEeeCnJy0HcQNBg" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_TNbo0h1jEeeCnJy0HcQNBg"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_TNbo0x1jEeeCnJy0HcQNBg" type="3010" element="_TNIt4h1jEeeCnJy0HcQNBg">
-              <styles xmi:type="notation:FontStyle" xmi:id="_TNbo1B1jEeeCnJy0HcQNBg" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_TNbo1R1jEeeCnJy0HcQNBg"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_W89TIB2mEeeR8v7spXNIBA" type="3010" element="_W8NFMB2mEeeR8v7spXNIBA">
               <styles xmi:type="notation:FontStyle" xmi:id="_W89TIR2mEeeR8v7spXNIBA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_W89TIh2mEeeR8v7spXNIBA"/>
@@ -350,24 +346,20 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MXXiMB1eEeeCnJy0HcQNBg" name="chooseMove(grid : Organismo, posX : EIntegerObject, posY : EIntegerObject, direction : Integer)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MXXiMB1eEeeCnJy0HcQNBg" name="chooseMove(grid : Organismo, direction : Integer)">
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_9YzRIB1dEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_9YzRIB1dEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_0N-D0B1eEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_Ig8qQB1eEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_EGMWMB1eEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#__iDcoB1dEeeCnJy0HcQNBg"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_85ApEB2lEeeR8v7spXNIBA" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_3I91UB1eEeeCnJy0HcQNBg" name="chooseSpawn(grid : Organismo, posX : Integer, posY : Integer) : Integer[1]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_3I91UB1eEeeCnJy0HcQNBg" name="chooseSpawn(grid : Organismo) : Integer[1]">
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_huWt4B1eEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_huWt4B1eEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_vhmbUB1eEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_qxm3EB1eEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_nYoJEB1eEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_lO7RoB1eEeeCnJy0HcQNBg"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_9Xq7AB2lEeeR8v7spXNIBA" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
@@ -402,24 +394,20 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gcqnEB1fEeeCnJy0HcQNBg" name="chooseMove(grid : Organismo, posX : Integer, posY : Integer) : Integer[1]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gcqnEB1fEeeCnJy0HcQNBg" name="chooseMove(grid : Organismo) : Integer[1]">
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_HSh54B1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_HSh54B1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_Of6toB1fEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_MQgPwB1fEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_KL23cB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_IRzlkB1fEeeCnJy0HcQNBg"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_gcqnER1fEeeCnJy0HcQNBg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gcqnEh1fEeeCnJy0HcQNBg" name="chooseSpawn(grid : Organismo, posX : Integer, posY : Integer) : Integer[1]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gcqnEh1fEeeCnJy0HcQNBg" name="chooseSpawn(grid : Organismo) : Integer[1]">
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_Rt7hwB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_Rt7hwB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_afalgB1fEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_X-QQUB1fEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_V1E9UB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_T4THkB1fEeeCnJy0HcQNBg"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_gcqnEx1fEeeCnJy0HcQNBg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
@@ -446,24 +434,20 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__nsfsB1fEeeCnJy0HcQNBg" name="chooseMove(grid : Organismo, posX : Integer, posY : Integer) : Integer[1]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__nsfsB1fEeeCnJy0HcQNBg" name="chooseMove(grid : Organismo) : Integer[1]">
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_oktsQB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_oktsQB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_wctjQB1fEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_t7ZdEB1fEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_roK2MB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_qGdy4B1fEeeCnJy0HcQNBg"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="__nsfsR1fEeeCnJy0HcQNBg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__nsfsh1fEeeCnJy0HcQNBg" name="chooseSpawn(grid : Organismo, posX : Integer, posY : Integer) : Integer[1]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__nsfsh1fEeeCnJy0HcQNBg" name="chooseSpawn(grid : Organismo) : Integer[1]">
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_zHfHcB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_zHfHcB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_8KfZAB1fEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_5ryh8B1fEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_2d5CkB1fEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_0RsQwB1fEeeCnJy0HcQNBg"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="__nsfsx1fEeeCnJy0HcQNBg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
@@ -520,17 +504,6 @@
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_I87CUB1jEeeCnJy0HcQNBg"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_I87CUB1jEeeCnJy0HcQNBg"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_TNIt4R1jEeeCnJy0HcQNBg" labelAlignment="LEFT">
-          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TNIt4h1jEeeCnJy0HcQNBg" name="spawn(occupant : Organismo, posX : Integer, posY : Integer)">
-        <target xmi:type="uml:Operation" href="predatorieprede02.uml#_J0_SwB1jEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_J0_SwB1jEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_Py_iQB1jEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_No9ToB1jEeeCnJy0HcQNBg"/>
-        <semanticElements xmi:type="uml:Parameter" href="predatorieprede02.uml#_K2tOcB1jEeeCnJy0HcQNBg"/>
-        <ownedStyle xmi:type="diagram:Square" xmi:id="_TNIt4x1jEeeCnJy0HcQNBg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
@@ -603,7 +576,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_OlgOEB2oEeeR8v7spXNIBA" name="manageHunger()">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_OlgOEB2oEeeR8v7spXNIBA" name="act()">
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_Nq8DQB2oEeeR8v7spXNIBA"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_Nq8DQB2oEeeR8v7spXNIBA"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_OlgOER2oEeeR8v7spXNIBA" labelAlignment="LEFT">

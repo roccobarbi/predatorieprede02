@@ -162,7 +162,23 @@ public class Organismo {
 	 * @return	the direction where it should spawn (0 up, 1 right, 2 down, 3 left) or -1
 	 */
 	public int chooseSpawn(Organismo[] grid){
-		return -1;
+		int offspring = -1;
+		int available = 0;
+		int destination = 0;
+		if(this.getNextOffspring() == 0){
+			for(int i = 1; i < 8; i +=2){
+				if(grid[i] == null) available++; // check if the cell is empty and flag it as available
+			}
+			// If there are available cells, chose one and spawn there
+			if(available > 0){
+				destination = (int)(Math.random() * available); // 0, 1, 2 or 3
+				for(int i = 1; i < 8 && destination >= 0; i += 2){ 
+					if(destination == 0) offspring = i;
+					if(grid[i] == null) destination--;
+				}
+			}
+		}
+		return offspring;
 	};
 	
 	/**

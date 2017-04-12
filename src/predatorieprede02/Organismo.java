@@ -7,10 +7,31 @@ public class Organismo {
 	private String species;
 	private int age;
 	private char representation; // a character that represents this organism on the screen
-	public int nextOffspring;
-	public final int initialNextOffspring;
+	private int nextOffspring;
+	private int moveProbability; // The probability that the animal moves (0 to 100)
+	
+	// Accessors
+	
+	/**
+	 * @return the moveProbability
+	 */
+	public int getMoveProbability() {
+		return moveProbability;
+	}
+	/**
+	 * precondition: the moveProbability is between 0 and 100, including the extremes.
+	 * @param moveProbability the moveProbability to set
+	 */
+	public void setMoveProbability(int moveProbability) {
+		if(moveProbability > 100)
+			this.moveProbability = 100;
+		else if (moveProbability < 0)
+			this.moveProbability = 0;
+		else
+			this.moveProbability = moveProbability;
+	}
 
-	// Public Accessors
+	private final int initialNextOffspring;
 	
 	/**
 	 * @return the name
@@ -75,24 +96,28 @@ public class Organismo {
 	// Constructors
 	
 	public Organismo(){
-		this("noName", 'g', "noSpecies", 3);
+		this("noName");
 	}
 	public Organismo(String name){
-		this(name, 'g', "noSpecies", 3);
+		this(name, 'g');
 	}
 	public Organismo(String name, char representation){
-		this(name, representation, "noSpecies", 3);
+		this(name, representation, "noSpecies");
 	}
 	public Organismo(String name, char representation, String species){
 		this(name, representation, species, 3);
 	}
 	public Organismo(String name, char representation, String species, int nextOffspring){
+		this(name, representation, species, nextOffspring, 50);
+	}
+	public Organismo(String name, char representation, String species, int nextOffspring, int moveProbability){
 		this.name = name;
 		this.species = species;
 		this.representation = representation;
 		this.initialNextOffspring = nextOffspring;
 		this.nextOffspring = nextOffspring;
 		this.age = 0;
+		setMoveProbability(moveProbability);
 	}
 	
 	// Private methods
@@ -110,7 +135,7 @@ public class Organismo {
 	 * @return	the direction where it should move (0 up, 1 right, 2 down, 3 left) or -1
 	 */
 	public int chooseMove(Organismo[] grid){
-		boolean wantsToMove = Math.random() < 0.5;
+		boolean wantsToMove = Math.random() < (moveProbability / 100.0);
 		int available = 0;
 		int destination = 0;
 		int move = -1;

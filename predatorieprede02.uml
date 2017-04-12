@@ -25,6 +25,7 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
+    <ownedOperation xmi:id="_s3aMkB84EeeflrLG5pDuig" name="print"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_S5BRUB1eEeeCnJy0HcQNBg" name="Predatore">
     <generalization xmi:id="_lBp1MB1fEeeCnJy0HcQNBg" general="_B0nKkB1dEeeCnJy0HcQNBg"/>
@@ -168,11 +169,11 @@
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_D_iQUR4pEee4f9ILU2CTjQ" name="chooseMove"/>
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wq-YgB6uEee8i-U2LMentQ" name="chooseSpawn"/>
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_SyKM4R82EeeflrLG5pDuig" name="move"/>
-    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3hie4R82EeeflrLG5pDuig" name="spawn"/>
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_EMd5YR83EeeflrLG5pDuig" name="add"/>
-    <lifeline xmi:id="_QR4oMR4oEee4f9ILU2CTjQ" name="LinkedOrganisms" represents="_QR4oMB4oEee4f9ILU2CTjQ" coveredBy="_UefLgx4oEee4f9ILU2CTjQ _UefLhx4oEee4f9ILU2CTjQ _EMd5ZB83EeeflrLG5pDuig _EMd5Zh83EeeflrLG5pDuig _EMd5ZR83EeeflrLG5pDuig"/>
-    <lifeline xmi:id="_VsmEwB4lEee4f9ILU2CTjQ" name="LinkedOrganism" represents="_VsldsB4lEee4f9ILU2CTjQ" coveredBy="_UefLhB4oEee4f9ILU2CTjQ _UefLhh4oEee4f9ILU2CTjQ _UefLhR4oEee4f9ILU2CTjQ _zQ03Uh4oEee4f9ILU2CTjQ _zQ03Vh4oEee4f9ILU2CTjQ _D_iQUx4pEee4f9ILU2CTjQ _D_iQVx4pEee4f9ILU2CTjQ _wq-Ygh6uEee8i-U2LMentQ _wq-Yhh6uEee8i-U2LMentQ _SyKM4x82EeeflrLG5pDuig _SyKM5x82EeeflrLG5pDuig _3hie4x82EeeflrLG5pDuig _3hie5x82EeeflrLG5pDuig _EMd5Yx83EeeflrLG5pDuig _EMd5Zx83EeeflrLG5pDuig"/>
-    <lifeline xmi:id="_Y52jkR4oEee4f9ILU2CTjQ" name="PlayingField" represents="_Y52jkB4oEee4f9ILU2CTjQ" coveredBy="_zQ03Ux4oEee4f9ILU2CTjQ _zQ03VR4oEee4f9ILU2CTjQ _zQ03VB4oEee4f9ILU2CTjQ _SyKM5B82EeeflrLG5pDuig _SyKM5h82EeeflrLG5pDuig _SyKM5R82EeeflrLG5pDuig _3hie5B82EeeflrLG5pDuig _3hie5h82EeeflrLG5pDuig _3hie5R82EeeflrLG5pDuig"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57WZcR83EeeflrLG5pDuig" name="spawn"/>
+    <lifeline xmi:id="_QR4oMR4oEee4f9ILU2CTjQ" name="LinkedOrganisms" represents="_QR4oMB4oEee4f9ILU2CTjQ" coveredBy="_UefLgx4oEee4f9ILU2CTjQ _UefLhx4oEee4f9ILU2CTjQ _EMd5ZB83EeeflrLG5pDuig _EMd5Zh83EeeflrLG5pDuig _EMd5ZR83EeeflrLG5pDuig _57WZcx83EeeflrLG5pDuig _57WZdx83EeeflrLG5pDuig"/>
+    <lifeline xmi:id="_VsmEwB4lEee4f9ILU2CTjQ" name="LinkedOrganism" represents="_VsldsB4lEee4f9ILU2CTjQ" coveredBy="_UefLhB4oEee4f9ILU2CTjQ _UefLhh4oEee4f9ILU2CTjQ _UefLhR4oEee4f9ILU2CTjQ _zQ03Uh4oEee4f9ILU2CTjQ _zQ03Vh4oEee4f9ILU2CTjQ _D_iQUx4pEee4f9ILU2CTjQ _D_iQVx4pEee4f9ILU2CTjQ _wq-Ygh6uEee8i-U2LMentQ _wq-Yhh6uEee8i-U2LMentQ _SyKM4x82EeeflrLG5pDuig _SyKM5x82EeeflrLG5pDuig _EMd5Yx83EeeflrLG5pDuig _EMd5Zx83EeeflrLG5pDuig"/>
+    <lifeline xmi:id="_Y52jkR4oEee4f9ILU2CTjQ" name="PlayingField" represents="_Y52jkB4oEee4f9ILU2CTjQ" coveredBy="_zQ03Ux4oEee4f9ILU2CTjQ _zQ03VR4oEee4f9ILU2CTjQ _zQ03VB4oEee4f9ILU2CTjQ _SyKM5B82EeeflrLG5pDuig _SyKM5h82EeeflrLG5pDuig _SyKM5R82EeeflrLG5pDuig _57WZdB83EeeflrLG5pDuig _57WZdh83EeeflrLG5pDuig _57WZdR83EeeflrLG5pDuig"/>
     <lifeline xmi:id="_CcS78R4pEee4f9ILU2CTjQ" name="Preda" represents="_CcS78B4pEee4f9ILU2CTjQ" coveredBy="_D_iQVB4pEee4f9ILU2CTjQ _D_iQVh4pEee4f9ILU2CTjQ _D_iQVR4pEee4f9ILU2CTjQ _wq-Ygx6uEee8i-U2LMentQ _wq-YhR6uEee8i-U2LMentQ _wq-YhB6uEee8i-U2LMentQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_UefLgx4oEee4f9ILU2CTjQ" name="act_sender" covered="_QR4oMR4oEee4f9ILU2CTjQ" message="_UefLgB4oEee4f9ILU2CTjQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_UefLhB4oEee4f9ILU2CTjQ" name="act_receiver" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_UefLgB4oEee4f9ILU2CTjQ"/>
@@ -197,14 +198,14 @@
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_wq-YhR6uEee8i-U2LMentQ" name="chooseSpawn" covered="_CcS78R4pEee4f9ILU2CTjQ" finish="_wq-YhB6uEee8i-U2LMentQ" start="_wq-Ygx6uEee8i-U2LMentQ" behavior="_wq-YgB6uEee8i-U2LMentQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_wq-YhB6uEee8i-U2LMentQ" name="chooseSpawn_reply_sender" covered="_CcS78R4pEee4f9ILU2CTjQ" message="_wq-YgR6uEee8i-U2LMentQ"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_wq-Yhh6uEee8i-U2LMentQ" name="chooseSpawn_reply_receiver" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_wq-YgR6uEee8i-U2LMentQ"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3hie4x82EeeflrLG5pDuig" name="spawn_sender" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_3hie4B82EeeflrLG5pDuig"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3hie5B82EeeflrLG5pDuig" name="spawn_receiver" covered="_Y52jkR4oEee4f9ILU2CTjQ" message="_3hie4B82EeeflrLG5pDuig"/>
-    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_3hie5h82EeeflrLG5pDuig" name="spawn" covered="_Y52jkR4oEee4f9ILU2CTjQ" finish="_3hie5R82EeeflrLG5pDuig" start="_3hie5B82EeeflrLG5pDuig" behavior="_3hie4R82EeeflrLG5pDuig"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3hie5R82EeeflrLG5pDuig" name="spawn_reply_sender" covered="_Y52jkR4oEee4f9ILU2CTjQ" message="_3hie4h82EeeflrLG5pDuig"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3hie5x82EeeflrLG5pDuig" name="spawn_reply_receiver" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_3hie4h82EeeflrLG5pDuig"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_EMd5Yx83EeeflrLG5pDuig" name="add_sender" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_EMd5YB83EeeflrLG5pDuig"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_EMd5ZB83EeeflrLG5pDuig" name="add_receiver" covered="_QR4oMR4oEee4f9ILU2CTjQ" message="_EMd5YB83EeeflrLG5pDuig"/>
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_EMd5Zh83EeeflrLG5pDuig" name="add" covered="_QR4oMR4oEee4f9ILU2CTjQ" finish="_EMd5ZR83EeeflrLG5pDuig" start="_EMd5ZB83EeeflrLG5pDuig" behavior="_EMd5YR83EeeflrLG5pDuig"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_57WZcx83EeeflrLG5pDuig" name="spawn_sender" covered="_QR4oMR4oEee4f9ILU2CTjQ" message="_57WZcB83EeeflrLG5pDuig"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_57WZdB83EeeflrLG5pDuig" name="spawn_receiver" covered="_Y52jkR4oEee4f9ILU2CTjQ" message="_57WZcB83EeeflrLG5pDuig"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_57WZdh83EeeflrLG5pDuig" name="spawn" covered="_Y52jkR4oEee4f9ILU2CTjQ" finish="_57WZdR83EeeflrLG5pDuig" start="_57WZdB83EeeflrLG5pDuig" behavior="_57WZcR83EeeflrLG5pDuig"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_57WZdR83EeeflrLG5pDuig" name="spawn_reply_sender" covered="_Y52jkR4oEee4f9ILU2CTjQ" message="_57WZch83EeeflrLG5pDuig"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_57WZdx83EeeflrLG5pDuig" name="spawn_reply_receiver" covered="_QR4oMR4oEee4f9ILU2CTjQ" message="_57WZch83EeeflrLG5pDuig"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_EMd5ZR83EeeflrLG5pDuig" name="add_reply_sender" covered="_QR4oMR4oEee4f9ILU2CTjQ" message="_EMd5Yh83EeeflrLG5pDuig"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_EMd5Zx83EeeflrLG5pDuig" name="add_reply_receiver" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_EMd5Yh83EeeflrLG5pDuig"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_UefLhR4oEee4f9ILU2CTjQ" name="act_reply_sender" covered="_VsmEwB4lEee4f9ILU2CTjQ" message="_UefLgh4oEee4f9ILU2CTjQ"/>
@@ -219,10 +220,10 @@
     <message xmi:id="_wq-YgR6uEee8i-U2LMentQ" name="chooseSpawn_reply" messageSort="reply" receiveEvent="_wq-Yhh6uEee8i-U2LMentQ" sendEvent="_wq-YhB6uEee8i-U2LMentQ"/>
     <message xmi:id="_SyKM4B82EeeflrLG5pDuig" name="move" receiveEvent="_SyKM5B82EeeflrLG5pDuig" sendEvent="_SyKM4x82EeeflrLG5pDuig" signature="_-PRXoB81EeeflrLG5pDuig"/>
     <message xmi:id="_SyKM4h82EeeflrLG5pDuig" name="move_reply" messageSort="reply" receiveEvent="_SyKM5x82EeeflrLG5pDuig" sendEvent="_SyKM5R82EeeflrLG5pDuig"/>
-    <message xmi:id="_3hie4B82EeeflrLG5pDuig" name="spawn" receiveEvent="_3hie5B82EeeflrLG5pDuig" sendEvent="_3hie4x82EeeflrLG5pDuig" signature="_uD-_UB82EeeflrLG5pDuig"/>
-    <message xmi:id="_3hie4h82EeeflrLG5pDuig" name="spawn_reply" messageSort="reply" receiveEvent="_3hie5x82EeeflrLG5pDuig" sendEvent="_3hie5R82EeeflrLG5pDuig"/>
     <message xmi:id="_EMd5YB83EeeflrLG5pDuig" name="add" receiveEvent="_EMd5ZB83EeeflrLG5pDuig" sendEvent="_EMd5Yx83EeeflrLG5pDuig" signature="_B1hsUB4oEee4f9ILU2CTjQ"/>
     <message xmi:id="_EMd5Yh83EeeflrLG5pDuig" name="add_reply" messageSort="reply" receiveEvent="_EMd5Zx83EeeflrLG5pDuig" sendEvent="_EMd5ZR83EeeflrLG5pDuig"/>
+    <message xmi:id="_57WZcB83EeeflrLG5pDuig" name="spawn" receiveEvent="_57WZdB83EeeflrLG5pDuig" sendEvent="_57WZcx83EeeflrLG5pDuig" signature="_uD-_UB82EeeflrLG5pDuig"/>
+    <message xmi:id="_57WZch83EeeflrLG5pDuig" name="spawn_reply" messageSort="reply" receiveEvent="_57WZdx83EeeflrLG5pDuig" sendEvent="_57WZdR83EeeflrLG5pDuig"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_bWd3UB4lEee4f9ILU2CTjQ" name="LinkedOrganisms">
     <ownedAttribute xmi:id="_1e2DgB4nEee4f9ILU2CTjQ" name="length" visibility="private">

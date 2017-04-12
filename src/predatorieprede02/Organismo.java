@@ -132,7 +132,7 @@ public class Organismo {
 	/**
 	 * If the organism wants to move (50% of the time), it moves in a random direction chosen from the available ones.
 	 * @param	grid	an array of 8 Organisms or null representing the surrounding area (an organism can be used as filler for unmovable positions)
-	 * @return	the direction where it should move (0 up, 1 right, 2 down, 3 left) or -1
+	 * @return	the direction where it should move (1 up, 3 right, 5 down, 7 left) or -1
 	 */
 	public int chooseMove(Organismo[] grid){
 		boolean wantsToMove = Math.random() < (moveProbability / 100.0);
@@ -159,7 +159,7 @@ public class Organismo {
 	/**
 	 * Given a grid with the surrounding cels, it decides wether it should spawn and in which direction.
 	 * @param	grid	an array of 8 Organisms or null representing the surrounding area (an organism can be used as filler for unmovable positions)
-	 * @return	the direction where it should spawn (0 up, 1 right, 2 down, 3 left) or -1
+	 * @return	the direction where it should spawn (1 up, 3 right, 5 down, 7 left) or -1
 	 */
 	public int chooseSpawn(Organismo[] grid){
 		int offspring = -1;

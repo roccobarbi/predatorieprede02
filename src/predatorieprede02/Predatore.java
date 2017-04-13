@@ -44,7 +44,7 @@ public class Predatore extends Organismo {
 	// Accessors
 
 	/**
-	 * This field can only be reset by hunt() or reduced by any other function with reduceDaysUntilStarve()
+	 * This field can only be reset by eat() or reduced by any other function with reduceDaysUntilStarve()
 	 * @return the daysUntilStarve
 	 */
 	public int getDaysUntilStarve() {
@@ -82,10 +82,27 @@ public class Predatore extends Organismo {
 			daysUntilStarve--;
 	}
 	/**
-	 * It resets the daysUntilStarve. This method should only be called by hunt()
+	 * It resets the daysUntilStarve. This method should only be called by eat()
 	 */
 	public void resetDaysUntilStarve(){
 		daysUntilStarve = initialDaysUntilStarve;
+	}
+	
+	// Public methods
+	
+	/**
+	 * It kills a prey and eats it
+	 */
+	public void eat(){
+		// TODO
+	}
+	
+	/**
+	 * It overloads the chooseMove() method for Organismo  account for the need to eat.
+	 */
+	public int chooseMove(Organismo [] grid){
+		// TODO
+		return -1;
 	}
 
 }

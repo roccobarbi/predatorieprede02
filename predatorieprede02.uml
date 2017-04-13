@@ -73,6 +73,7 @@
     </ownedAttribute>
     <ownedOperation xmi:id="_I87CUB1jEeeCnJy0HcQNBg" name="kill"/>
     <ownedOperation xmi:id="_VaMf4B2mEeeR8v7spXNIBA" name="act"/>
+    <ownedOperation xmi:id="_KzjHUCCFEeevgLzAeJb7-A" name="set"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_zuHXsB1hEeeCnJy0HcQNBg" memberEnd="_zuHXsR1hEeeCnJy0HcQNBg _zuHXtB1hEeeCnJy0HcQNBg" navigableOwnedEnd="_zuHXtB1hEeeCnJy0HcQNBg">
     <name xsi:nil="true"/>

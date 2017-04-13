@@ -172,6 +172,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_W89TIR2mEeeR8v7spXNIBA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_W89TIh2mEeeR8v7spXNIBA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_MBe6ECCFEeevgLzAeJb7-A" type="3010" element="_L_jAYCCFEeevgLzAeJb7-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_MBe6ESCFEeevgLzAeJb7-A" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_MBe6EiCFEeevgLzAeJb7-A"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_VLDTdR1gEeeCnJy0HcQNBg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_VLDTdh1gEeeCnJy0HcQNBg"/>
           </children>
@@ -596,6 +600,14 @@
         <target xmi:type="uml:Operation" href="predatorieprede02.uml#_VaMf4B2mEeeR8v7spXNIBA"/>
         <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_VaMf4B2mEeeR8v7spXNIBA"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_W8OTUB2mEeeR8v7spXNIBA" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_L_jAYCCFEeevgLzAeJb7-A" name="set()">
+        <target xmi:type="uml:Operation" href="predatorieprede02.uml#_KzjHUCCFEeevgLzAeJb7-A"/>
+        <semanticElements xmi:type="uml:Operation" href="predatorieprede02.uml#_KzjHUCCFEeevgLzAeJb7-A"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_L_sKUCCFEeevgLzAeJb7-A" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>

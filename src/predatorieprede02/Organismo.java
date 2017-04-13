@@ -2,6 +2,7 @@ package predatorieprede02;
 
 
 public class Organismo {
+	
 	// Private fields
 	private String name;
 	private String species;
@@ -9,6 +10,8 @@ public class Organismo {
 	private char representation; // a character that represents this organism on the screen
 	private int nextOffspring;
 	private int moveProbability; // The probability that the animal moves (0 to 100)
+	
+	private final int initialNextOffspring;
 	
 	// Accessors
 	
@@ -30,8 +33,6 @@ public class Organismo {
 		else
 			this.moveProbability = moveProbability;
 	}
-
-	private final int initialNextOffspring;
 	
 	/**
 	 * @return the name

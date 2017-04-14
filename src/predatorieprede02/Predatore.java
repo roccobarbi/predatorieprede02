@@ -1,7 +1,5 @@
 package predatorieprede02;
 
-import predatorieprede01.Preda;
-
 public class Predatore extends Organismo {
 	
 	// Private fields

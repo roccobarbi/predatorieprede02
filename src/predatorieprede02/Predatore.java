@@ -73,13 +73,15 @@ public class Predatore extends Organismo {
 		}
 	}
 	/**
-	 * reduces the value for daysUntilStarve
+	 * Reduces the value for daysUntilStarve and kills the animal if needed
+	 * @return	the days until starve
 	 */
-	public void reduceDaysUntilStarve(){
+	public int reduceDaysUntilStarve(){
 		if(daysUntilStarve < 1) // To correct any errors that might have happened
 			isAlive = false;
 		else
 			daysUntilStarve--;
+		return getDaysUntilStarve();
 	}
 	/**
 	 * It resets the daysUntilStarve. This method should only be called by eat()
@@ -117,11 +119,9 @@ public class Predatore extends Organismo {
 					if(destination == 0) move = i;
 					if(grid[i] == null) destination--;
 				}
-				reduceDaysUntilStarve(); // If no prey was found, the beast is one day closer to starvation
-			}
-			if(getDaysUntilStarve() == 0){ // The beast is dead, long live the beast!
-				setIsAlive(false);
-				move = -10;
+				if(reduceDaysUntilStarve() == 0){ // If no prey was found, the beast is one day closer to starvation
+					move = -10; // The beast is dead, long live the beast!
+				}
 			}
 		}
 		return move;

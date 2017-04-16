@@ -30,7 +30,14 @@ public class LinkedOrganism {
 	// Constructors
 
 	public LinkedOrganism() {
-		// TODO Auto-generated constructor stub
+		this(null, -1, -1, null); // Negative positions imply that the organism hasn't been placed on the field
+	}
+	
+	public LinkedOrganism(Organismo organismo, int posX, int posY, PlayingField field) {
+		this.self = organismo;
+		this.posX = posX;
+		this.posY = posY;
+		this.field = field;
 	}
 	
 	// Public methods

@@ -43,6 +43,8 @@ public class LinkedOrganism {
 	// Public methods
 	
 	public void kill(){
+		field.remove(posX, posY); // Remove the current element from the playing field
+		
 		// TODO eliminates the links to self from the field and the linked list
 	}
 	

@@ -23,5 +23,14 @@ public class PlayingField {
 	public void spawn(int posX, int posY, Organismo pup){
 		// TODO sets an Organismo to a cell
 	}
+	
+	/**
+	 * It removes the current occupant from a specific position
+	 * @param posX
+	 * @param posY
+	 */
+	public void remove(int posX, int posY){
+		occupant[posX][posY] = null;
+	}
 
 }

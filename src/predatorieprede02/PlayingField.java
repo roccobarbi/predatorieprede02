@@ -20,8 +20,8 @@ public class PlayingField {
 		// TODO moves the content of a cell to another
 	}
 	
-	public void spawn(int posX, int posY, Organismo pup){
-		// TODO sets an Organismo to a cell
+	public void spawn(int posX, int posY, LinkedOrganism pup){
+		// TODO sets a LinkedOrganism to a cell
 	}
 	
 	/**

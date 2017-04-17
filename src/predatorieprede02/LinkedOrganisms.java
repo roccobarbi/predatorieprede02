@@ -22,6 +22,38 @@ public class LinkedOrganisms {
 	}
 	
 	// public methods
+	/**
+	 * Loops through all its elements and makes them act.
+	 */
+	public void act(){
+		LinkedOrganism current = first;
+		if(current instanceof LinkedOrganism){
+			try{
+				current.act();
+			}
+			catch(Exception e){
+				System.out.println("Critical error: " + e);
+				System.out.println("Stopping execution!");
+				System.exit(0);
+			}
+			for(int i = 1; i < length; i++){
+				current = current.getNext();
+				try{
+					current.act();
+				}
+				catch(Exception e){
+					System.out.println("Critical error: " + e);
+					System.out.println("Stopping execution!");
+					System.exit(0);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * adds a new LinkedOrganism to the list
+	 * @param organismo	the new LinkedOrganism that needs to be added to the list
+	 */
 	public void add(LinkedOrganism organismo){
 		last.setNext(organismo);
 		last = organismo;

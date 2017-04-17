@@ -120,6 +120,15 @@ public class Organismo {
 		this.age = 0;
 		setMoveProbability(moveProbability);
 	}
+	public Organismo(Organismo parent){
+		this.name = parent.getName();
+		this.species = parent.getSpecies();
+		this.representation = parent.getRepresentation();
+		this.initialNextOffspring = parent.getInitialNextOffspring();
+		this.nextOffspring = parent.getInitialNextOffspring();
+		this.age = 0;
+		setMoveProbability(parent.getMoveProbability());
+	}
 	
 	// Private methods
 	/**

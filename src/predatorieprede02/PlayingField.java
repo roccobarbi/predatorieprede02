@@ -25,7 +25,7 @@ public class PlayingField {
 	}
 	
 	/**
-	 * It shuffles the playing field, updating the position of each organism on it
+	 * Shuffles the playing field, updating the position of each organism on it
 	 */
 	public void shuffle(){
 		LinkedOrganism temp;
@@ -47,7 +47,7 @@ public class PlayingField {
 	}
 	
 	/**
-	 * It removes the current occupant from a specific position
+	 * Removes the current occupant from a specific position
 	 * @param posX
 	 * @param posY
 	 */

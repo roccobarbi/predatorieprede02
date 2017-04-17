@@ -25,6 +25,24 @@ public class PlayingField {
 	}
 	
 	/**
+	 * It shuffles the playing field, updating the position of each organism on it
+	 */
+	public void shuffle(){
+		LinkedOrganism temp;
+		int newN = 0, length = occupant.length * occupant[0].length;
+		for(int i = 0; i < length; i++){
+			newN = i + (int) (Math.random() * (length - i));
+			temp = occupant[i / occupant.length][i % occupant.length];
+			occupant[i / occupant.length][i % occupant.length] = occupant[newN / occupant.length][newN % occupant.length];
+			occupant[newN / occupant.length][newN % occupant.length] = temp;
+			occupant[i / occupant.length][i % occupant.length].setPosX(i / occupant.length);
+			occupant[i / occupant.length][i % occupant.length].setPosY(i % occupant.length);
+			occupant[newN / occupant.length][newN % occupant.length].setPosX(newN / occupant.length);
+			occupant[newN / occupant.length][newN % occupant.length].setPosY(newN % occupant.length);
+		}
+	}
+	
+	/**
 	 * It removes the current occupant from a specific position
 	 * @param posX
 	 * @param posY

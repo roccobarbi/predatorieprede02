@@ -35,10 +35,14 @@ public class PlayingField {
 			temp = occupant[i / occupant.length][i % occupant.length];
 			occupant[i / occupant.length][i % occupant.length] = occupant[newN / occupant.length][newN % occupant.length];
 			occupant[newN / occupant.length][newN % occupant.length] = temp;
-			occupant[i / occupant.length][i % occupant.length].setPosX(i / occupant.length);
-			occupant[i / occupant.length][i % occupant.length].setPosY(i % occupant.length);
-			occupant[newN / occupant.length][newN % occupant.length].setPosX(newN / occupant.length);
-			occupant[newN / occupant.length][newN % occupant.length].setPosY(newN % occupant.length);
+			if(occupant[i / occupant.length][i % occupant.length] instanceof LinkedOrganism){
+				occupant[i / occupant.length][i % occupant.length].setPosX(i / occupant.length);
+				occupant[i / occupant.length][i % occupant.length].setPosY(i % occupant.length);
+			}
+			if (occupant[newN / occupant.length][newN % occupant.length] instanceof LinkedOrganism){
+				occupant[newN / occupant.length][newN % occupant.length].setPosX(newN / occupant.length);
+				occupant[newN / occupant.length][newN % occupant.length].setPosY(newN % occupant.length);
+			}
 		}
 	}
 	

@@ -25,6 +25,7 @@ public class LinkedOrganisms {
 	public void add(LinkedOrganism organismo){
 		last.setNext(organismo);
 		last = organismo;
+		organismo.setList(this);
 		length++;
 	}
 	

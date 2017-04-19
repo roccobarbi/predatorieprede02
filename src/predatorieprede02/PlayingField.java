@@ -22,18 +22,43 @@ public class PlayingField {
 	}
 	
 	// Public methods
+	
+	/**
+	 * Provides a list of the cells in the immediate vicinity of a specific cell
+	 * TODO Create an overloaded method with the range of vision of the caller. 
+	 * @param posX
+	 * @param posY
+	 * @return an array with copies of the 8 occupants around a cell, null if they are empty, or a filler Organism if there are no cells at all.
+	 */
 	public Organismo[] lookAround(int posX, int posY){
 		Organismo output[] = {null, null, null, null, null, null, null, null};
+		Organismo filler = new Organismo("filler");
 		// TODO provides an array of 8 Organisms around a cell
 		return output;
 	}
 	
+	/**
+	 * Moves an occupant from its current position to a new one.
+	 * No checks are made on the validity of the move, the occupant should do them before moving at this stage.
+	 * TODO Implement checks on the validity of the move and manage errors.
+	 * @param fromX
+	 * @param fromY
+	 * @param toX
+	 * @param toY
+	 */
 	public void move(int fromX, int fromY, int toX, int toY){
-		// TODO moves the content of a cell to another
+		occupant[toX][toY] = occupant[fromX][fromY];
+		occupant[fromX][fromY] = null;
 	}
 	
+	/**
+	 * Adds a new occupant to a specific position
+	 * @param posX
+	 * @param posY
+	 * @param pup
+	 */
 	public void spawn(int posX, int posY, LinkedOrganism pup){
-		// TODO sets a LinkedOrganism to a cell
+		occupant[posX][posY] = pup;
 	}
 	
 	/**

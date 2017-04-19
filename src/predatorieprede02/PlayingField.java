@@ -33,7 +33,59 @@ public class PlayingField {
 	public Organismo[] lookAround(int posX, int posY){
 		Organismo output[] = {null, null, null, null, null, null, null, null};
 		Organismo filler = new Organismo("filler");
-		// TODO provides an array of 8 Organisms around a cell
+		// Add the fillers
+		if (posX == 0){
+			output[0] = filler;
+			output[1] = filler;
+			output[2] = filler;
+		}
+		if (posX == occupant.length) {
+			output[4] = filler;
+			output[5] = filler;
+			output[6] = filler;
+		}
+		if (posY == 0){
+			output[0] = filler;
+			output[6] = filler;
+			output[7] = filler;
+		}
+		if (posY == occupant[0].length){
+			output[2] = filler;
+			output[3] = filler;
+			output[4] = filler;
+		}
+		// Check everything else
+		for(int i = 0; i < output.length; i++){
+			// IF not filler, fill it
+			if(output[i] != filler){
+				switch(i){
+				case 0:
+					output[i] = occupant[posX - 1][posY - 1].reveal();
+					break;
+				case 1:
+					output[i] = occupant[posX - 1][posY].reveal();
+					break;
+				case 2:
+					output[i] = occupant[posX - 1][posY + 1].reveal();
+					break;
+				case 3:
+					output[i] = occupant[posX][posY + 1].reveal();
+					break;
+				case 4:
+					output[i] = occupant[posX + 1][posY + 1].reveal();
+					break;
+				case 5:
+					output[i] = occupant[posX + 1][posY].reveal();
+					break;
+				case 6:
+					output[i] = occupant[posX + 1][posY - 1].reveal();
+					break;
+				case 7:
+					output[i] = occupant[posX][posY - 1].reveal();
+					break;
+				}
+			}
+		}
 		return output;
 	}
 	

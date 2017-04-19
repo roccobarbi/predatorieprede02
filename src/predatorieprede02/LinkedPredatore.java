@@ -13,10 +13,5 @@ public class LinkedPredatore extends LinkedOrganism {
 	public void act(){ // Overloaded
 		// TODO
 	}
-	
-	public Predatore reveal(){ // Overloaded
-		//TODO outputs a safe copy of the occupant
-		return null;
-	}
 
 }

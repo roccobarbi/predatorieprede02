@@ -192,8 +192,7 @@ public class LinkedOrganism {
 	 * @return	an Organismo that is an exact copy of the occupant
 	 */
 	public Organismo reveal(){
-		//TODO outputs a safe copy of the occupant
-		return null;
+		return self.copy();
 	}
 
 }

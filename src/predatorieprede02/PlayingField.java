@@ -3,7 +3,19 @@ package predatorieprede02;
 public class PlayingField {
 
 	// private fields
+	
 	private LinkedOrganism occupant[][]; // A grid of LinkedOrganisms
+	
+	// Accessors
+	
+	/**
+	 * @param posX
+	 * @param posY
+	 * @return	the actual address to the occupant at posX, posY, NOT a safe copy
+	 */
+	public LinkedOrganism getOccupant(int posX, int posY){
+		return occupant[posX][posY];
+	}
 
 	public PlayingField() {
 		// TODO Auto-generated constructor stub

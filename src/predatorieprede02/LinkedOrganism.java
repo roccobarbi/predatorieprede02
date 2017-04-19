@@ -85,6 +85,20 @@ public class LinkedOrganism {
 	}
 	
 	/**
+	 * @return the field
+	 */
+	public PlayingField getField() {
+		return field;
+	}
+
+	/**
+	 * @param field the field to set
+	 */
+	public void setField(PlayingField field) {
+		this.field = field;
+	}
+
+	/**
 	 * Returns the list.
 	 * @return	the current list (not a safe copy)
 	 */

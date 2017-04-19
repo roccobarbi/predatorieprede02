@@ -42,5 +42,13 @@ public class LinkedPredatore extends LinkedOrganism {
 	public void act(){ // Overloaded
 		// TODO
 	}
+	
+	/**
+	 * Outputs a safe copy of the occupant.
+	 * @return	a Predatore that is an exact copy of the occupant
+	 */
+	public Predatore reveal(){ // Overloaded to be sure that the type is right
+		return self.copy();
+	}
 
 }

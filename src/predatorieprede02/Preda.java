@@ -26,10 +26,21 @@ public class Preda extends Organismo {
 		super(name, representation, species, nextOffspring, moveProbability);
 	}
 	
+	public Preda(Preda parent){
+		super(parent.getName(), parent.getRepresentation(), parent.getSpecies(), parent.getInitialNextOffspring(), parent.getMoveProbability());
+	}
+	
 	/*
 	 *  TODO: in the future, I might want to create differents species that react differently
 	 *  to other species, that look for food (if there exists some food for preys) and that
 	 *  try to avoid predators.
 	 */
+	
+	/**
+	 * @return	an exact copy of the current Preda
+	 */
+	public Preda copy(){
+		return new Preda(this);
+	}
 
 }

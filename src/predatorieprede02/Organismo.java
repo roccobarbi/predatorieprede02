@@ -214,4 +214,11 @@ public class Organismo {
 		else
 			nextOffspring--;
 	}
+	
+	/**
+	 * @return	an exact copy of the current Organismo
+	 */
+	public Organismo copy(){
+		return new Organismo(this);
+	}
 }

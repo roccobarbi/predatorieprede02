@@ -175,7 +175,7 @@ public class LinkedOrganism {
 			default:
 				throw new Exception("Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.");
 			}
-			pup = new Organismo(this.self); // TODO I will need a LinkedPreda
+			pup = self.copy();
 			lPup = new LinkedOrganism(pup, newX, newY, field);
 			list.add(lPup);
 			field.spawn(newX, newY, lPup);

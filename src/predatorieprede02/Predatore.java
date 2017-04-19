@@ -41,6 +41,10 @@ public class Predatore extends Organismo {
 		isAlive = true;
 	}
 	
+	public Predatore(Predatore parent){
+		this(parent.getName(), parent.getRepresentation(), parent.getSpecies(), parent.getInitialNextOffspring(), parent.getMoveProbability(), parent.getInitialDaysUntilStarve());
+	}
+	
 	// Accessors
 
 	/**
@@ -125,6 +129,13 @@ public class Predatore extends Organismo {
 			}
 		}
 		return move;
+	}
+	
+	/**
+	 * @return	an exact copy of the current Predatore
+	 */
+	public Predatore copy(){
+		return new Predatore(this);
 	}
 
 }

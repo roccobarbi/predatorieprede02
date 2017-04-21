@@ -66,28 +66,28 @@ public class PlayingField {
 			if(output[i] != filler){
 				switch(i){
 				case 0:
-					output[i] = occupant[posX - 1][posY - 1].reveal();
+					output[i] = occupant[posX - 1][posY - 1] == null ? null : occupant[posX - 1][posY - 1].reveal();
 					break;
 				case 1:
-					output[i] = occupant[posX - 1][posY].reveal();
+					output[i] = occupant[posX - 1][posY] == null ? null : occupant[posX - 1][posY].reveal();
 					break;
 				case 2:
-					output[i] = occupant[posX - 1][posY + 1].reveal();
+					output[i] = occupant[posX - 1][posY + 1] == null ? null : occupant[posX - 1][posY + 1].reveal();
 					break;
 				case 3:
-					output[i] = occupant[posX][posY + 1].reveal();
+					output[i] = occupant[posX][posY + 1] == null ? null : occupant[posX][posY + 1].reveal();
 					break;
 				case 4:
-					output[i] = occupant[posX + 1][posY + 1].reveal();
+					output[i] = occupant[posX + 1][posY + 1] == null ? null : occupant[posX + 1][posY + 1].reveal();
 					break;
 				case 5:
-					output[i] = occupant[posX + 1][posY].reveal();
+					output[i] = occupant[posX + 1][posY] == null ? null : occupant[posX + 1][posY].reveal();
 					break;
 				case 6:
-					output[i] = occupant[posX + 1][posY - 1].reveal();
+					output[i] = occupant[posX + 1][posY - 1] == null ? null : occupant[posX + 1][posY - 1].reveal();
 					break;
 				case 7:
-					output[i] = occupant[posX][posY - 1].reveal();
+					output[i] = occupant[posX][posY - 1] == null ? null : occupant[posX][posY - 1].reveal();
 					break;
 				}
 			}

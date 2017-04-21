@@ -121,6 +121,7 @@ public class LinkedOrganism {
 		this.posX = posX;
 		this.posY = posY;
 		this.field = field;
+		if(field instanceof PlayingField) field.spawn(posX, posY, this);
 		this.list = list;
 	}
 	

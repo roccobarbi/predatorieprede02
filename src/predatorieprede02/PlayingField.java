@@ -4,6 +4,8 @@ public class PlayingField {
 
 	// private fields
 	
+	private static final int defaultWidth = 20;
+	private static final int defaultHeight = 20;
 	private LinkedOrganism occupant[][]; // A grid of LinkedOrganisms
 	
 	// Accessors
@@ -18,7 +20,11 @@ public class PlayingField {
 	}
 
 	public PlayingField() {
-		// TODO Auto-generated constructor stub
+		this(defaultHeight, defaultWidth);
+	}
+	
+	public PlayingField(int w, int h) {
+		this.occupant = new LinkedOrganism[h][w];
 	}
 	
 	// Public methods

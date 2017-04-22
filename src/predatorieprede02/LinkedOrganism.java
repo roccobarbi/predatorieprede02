@@ -82,6 +82,7 @@ public class LinkedOrganism {
 	 */
 	public void setList(LinkedOrganisms list){
 		this.list = list;
+		if(list instanceof LinkedOrganisms && !list.isHere(this)) list.add(this);
 	}
 	
 	/**
@@ -122,7 +123,7 @@ public class LinkedOrganism {
 		this.posY = posY;
 		this.field = field;
 		if(field instanceof PlayingField) field.spawn(posX, posY, this);
-		this.list = list;
+		this.setList(list);
 	}
 	
 	// Public methods
@@ -131,8 +132,8 @@ public class LinkedOrganism {
 	 * Cleanly removes the LinkedOrganism from both the linked list and the field
 	 */
 	public void kill(){
-		field.remove(posX, posY); // Remove the current element from the playing field
-		list.remove(this); // Cleanly removes the current element from the list
+		if(field instanceof PlayingField) field.remove(posX, posY); // Remove the current element from the playing field
+		if(list instanceof LinkedOrganisms) list.remove(this); // Cleanly removes the current element from the list
 	}
 	
 	/**

@@ -64,7 +64,7 @@ public class LinkedOrganisms {
 			last.setNext(organismo);
 			last = organismo;
 		}
-		organismo.setList(this);
+		if(organismo.getList() != this) organismo.setList(this);
 		length++;
 	}
 	

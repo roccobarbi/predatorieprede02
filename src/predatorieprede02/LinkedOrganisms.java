@@ -31,7 +31,7 @@ public class LinkedOrganisms {
 			try{
 				current.act();
 			}
-			catch(Exception e){
+			catch(Exception e){ // TODO an error is generated here: DEBUG and correct
 				System.out.println("Critical error: " + e);
 				System.out.println("Stopping execution!");
 				System.exit(0);

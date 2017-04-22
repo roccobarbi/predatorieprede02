@@ -149,5 +149,20 @@ public class PlayingField {
 	public void remove(int posX, int posY){
 		occupant[posX][posY] = null;
 	}
+	
+	/**
+	 * Prints the field on screen
+	 */
+	public void print(){
+		char item = ' ';
+		System.out.println();
+		for(int i = 0; i < occupant.length; i++){
+			for(int k = 0; k < occupant[i].length; k++){
+				item = occupant[i][k] != null ? occupant[i][k].reveal().getRepresentation() : ' '; 
+				System.out.print(item);
+			}
+			System.out.println();
+		}
+	}
 
 }

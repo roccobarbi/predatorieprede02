@@ -104,9 +104,9 @@ public class PlayingField {
 	 * @param toX
 	 * @param toY
 	 */
-	public void move(int fromX, int fromY, int toX, int toY){
-		occupant[toX][toY] = occupant[fromX][fromY];
-		occupant[fromX][fromY] = null;
+	public void move(int fromY, int fromX, int toY, int toX){ // X and Y are inverted in the array
+		occupant[toY][toX] = occupant[fromY][fromX];
+		occupant[fromY][fromX] = null;
 	}
 	
 	/**
@@ -115,8 +115,8 @@ public class PlayingField {
 	 * @param posY
 	 * @param pup
 	 */
-	public void spawn(int posX, int posY, LinkedOrganism pup){
-		occupant[posX][posY] = pup;
+	public void spawn(int posY, int posX, LinkedOrganism pup){
+		occupant[posY][posX] = pup;
 	}
 	
 	/**

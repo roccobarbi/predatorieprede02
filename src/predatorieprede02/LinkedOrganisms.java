@@ -113,6 +113,7 @@ public class LinkedOrganisms {
 				if(checking.getNext() != null){
 					checking = checking.getNext();
 				}
+				i++;
 			}
 		}
 		return output;

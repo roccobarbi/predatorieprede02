@@ -34,11 +34,11 @@ public class Play {
 		for(int i = 0; i < 10; i++){
 			keyboard.nextLine();
 			predatori.act();
-			for(int k = 0; k < 100; k++) System.out.println();
+			for(int k = 0; k < 5; k++) System.out.println();
 			field.print();
 			keyboard.nextLine();
 			prede.act();
-			for(int k = 0; k < 100; k++) System.out.println();
+			for(int k = 0; k < 5; k++) System.out.println();
 			field.print();
 		}
 	}

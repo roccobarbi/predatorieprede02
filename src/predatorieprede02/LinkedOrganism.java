@@ -166,7 +166,7 @@ public class LinkedOrganism {
 			default:
 				throw new Exception("Invalid move: " + dest + "! Should have been 1, 3, 5 or 7.");
 			}
-			field.move(posY, posX, newY, newX);
+			field.move(posX, posY, newX, newY);
 			posX = newX;
 			posY = newY;
 		}
@@ -194,7 +194,7 @@ public class LinkedOrganism {
 			pup = self.copy();
 			lPup = new LinkedOrganism(pup, newY, newX, field);
 			list.add(lPup);
-			field.spawn(newY, newX, lPup);
+			field.spawn(newX, newY, lPup);
 		}
 	}
 	

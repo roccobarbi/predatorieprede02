@@ -98,7 +98,8 @@ public class PlayingField {
 	}
 	
 	/**
-	 * Moves an occupant from its current position to a new one.
+	 * Moves an occupant from its current position to a new one. The function manages the inversion of the coordinates,
+	 * so the caller does not need to bother with it.
 	 * No checks are made on the validity of the move, the occupant should do them before moving at this stage.
 	 * TODO Implement checks on the validity of the move and manage errors.
 	 * @param fromX
@@ -106,18 +107,19 @@ public class PlayingField {
 	 * @param toX
 	 * @param toY
 	 */
-	public void move(int fromY, int fromX, int toY, int toX){ // X and Y are inverted in the array
+	public void move(int fromX, int fromY, int toX, int toY){ // X and Y are inverted in the array
 		occupant[toY][toX] = occupant[fromY][fromX];
 		occupant[fromY][fromX] = null;
 	}
 	
 	/**
-	 * Adds a new occupant to a specific position
+	 * Adds a new occupant to a specific position. The inversion of the coordinates is managed by the function,
+	 * so the caller does not have to bother with it.
 	 * @param posX
 	 * @param posY
 	 * @param pup
 	 */
-	public void spawn(int posY, int posX, LinkedOrganism pup){
+	public void spawn(int posX, int posY, LinkedOrganism pup){
 		occupant[posY][posX] = pup;
 	}
 	
@@ -144,12 +146,13 @@ public class PlayingField {
 	}
 	
 	/**
-	 * Removes the current occupant from a specific position
+	 * Removes the current occupant from a specific position. The function manages the inversion of the coordinates,
+	 * so the caller does not have to bother with it.
 	 * @param posX
 	 * @param posY
 	 */
 	public void remove(int posX, int posY){
-		occupant[posX][posY] = null;
+		occupant[posY][posX] = null;
 	}
 	
 	/**

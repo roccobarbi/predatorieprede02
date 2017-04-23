@@ -11,12 +11,14 @@ public class PlayingField {
 	// Accessors
 	
 	/**
+	 * Returns the occupant of a specific cell, not a safe copy. The inversion of the coordinates is managed by the funcion,
+	 * so the caller does not have to bother with it.
 	 * @param posX
 	 * @param posY
 	 * @return	the actual address to the occupant at posX, posY, NOT a safe copy
 	 */
 	public LinkedOrganism getOccupant(int posX, int posY){
-		return occupant[posX][posY];
+		return occupant[posY][posX];
 	}
 
 	public PlayingField() {
@@ -42,23 +44,23 @@ public class PlayingField {
 		// Add the fillers
 		if (posX == 0){
 			output[0] = filler;
-			output[1] = filler;
-			output[2] = filler;
-		}
-		if (posX == occupant.length) {
-			output[4] = filler;
-			output[5] = filler;
-			output[6] = filler;
-		}
-		if (posY == 0){
-			output[0] = filler;
 			output[6] = filler;
 			output[7] = filler;
 		}
-		if (posY == occupant[0].length){
+		if (posX == occupant[0].length-1) {
 			output[2] = filler;
 			output[3] = filler;
 			output[4] = filler;
+		}
+		if (posY == 0){
+			output[0] = filler;
+			output[1] = filler;
+			output[2] = filler;
+		}
+		if (posY == occupant.length-1){
+			output[4] = filler;
+			output[5] = filler;
+			output[6] = filler;
 		}
 		// Check everything else
 		for(int i = 0; i < output.length; i++){
@@ -66,28 +68,28 @@ public class PlayingField {
 			if(output[i] != filler){
 				switch(i){
 				case 0:
-					output[i] = occupant[posX - 1][posY - 1] == null ? null : occupant[posX - 1][posY - 1].reveal();
+					output[i] = occupant[posY - 1][posX - 1] == null ? null : occupant[posY - 1][posX - 1].reveal();
 					break;
 				case 1:
-					output[i] = occupant[posX - 1][posY] == null ? null : occupant[posX - 1][posY].reveal();
+					output[i] = occupant[posY - 1][posX] == null ? null : occupant[posY - 1][posX].reveal();
 					break;
 				case 2:
-					output[i] = occupant[posX - 1][posY + 1] == null ? null : occupant[posX - 1][posY + 1].reveal();
+					output[i] = occupant[posY - 1][posX + 1] == null ? null : occupant[posY - 1][posX + 1].reveal();
 					break;
 				case 3:
-					output[i] = occupant[posX][posY + 1] == null ? null : occupant[posX][posY + 1].reveal();
+					output[i] = occupant[posY][posX + 1] == null ? null : occupant[posY][posX + 1].reveal();
 					break;
 				case 4:
-					output[i] = occupant[posX + 1][posY + 1] == null ? null : occupant[posX + 1][posY + 1].reveal();
+					output[i] = occupant[posY + 1][posX + 1] == null ? null : occupant[posY + 1][posX + 1].reveal();
 					break;
 				case 5:
-					output[i] = occupant[posX + 1][posY] == null ? null : occupant[posX + 1][posY].reveal();
+					output[i] = occupant[posY + 1][posX] == null ? null : occupant[posY + 1][posX].reveal();
 					break;
 				case 6:
-					output[i] = occupant[posX + 1][posY - 1] == null ? null : occupant[posX + 1][posY - 1].reveal();
+					output[i] = occupant[posY + 1][posX - 1] == null ? null : occupant[posY + 1][posX - 1].reveal();
 					break;
 				case 7:
-					output[i] = occupant[posX][posY - 1] == null ? null : occupant[posX][posY - 1].reveal();
+					output[i] = occupant[posY][posX - 1] == null ? null : occupant[posY][posX - 1].reveal();
 					break;
 				}
 			}

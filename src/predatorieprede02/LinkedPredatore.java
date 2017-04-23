@@ -72,7 +72,11 @@ public class LinkedPredatore extends LinkedOrganism {
 			default:
 				throw new Exception("Invalid move: " + dest + "! Should have been 1, 3, 5 or 7.");
 			}
-			if(field.getOccupant(newX, newY).reveal() instanceof Preda){
+			if(field.getOccupant(newX, newY) == null){
+				field.move(posX, posY, newX, newY);
+				posX = newX;
+				posY = newY;
+			} else if(field.getOccupant(newX, newY).reveal() instanceof Preda){
 				field.getOccupant(newX, newY).kill();
 				field.move(posX, posY, newX, newY);
 				posX = newX;

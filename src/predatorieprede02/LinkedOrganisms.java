@@ -58,9 +58,11 @@ public class LinkedOrganisms {
 		if (length == 0) {
 			first = organismo;
 		} else if (length == 1) {
-			last = organismo;
+			organismo.setPrev(first);
 			first.setNext(organismo);
+			last = organismo;
 		} else {
+			organismo.setPrev(last);
 			last.setNext(organismo);
 			last = organismo;
 		}

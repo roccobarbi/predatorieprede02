@@ -2,14 +2,14 @@ package predatorieprede02;
 
 import java.util.Scanner;
 
-public class Play {
+public class Play2 {
 
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in); 
 		
 		LinkedOrganisms prede = new LinkedOrganisms();
 		LinkedOrganisms predatori = new LinkedOrganisms();
-		PlayingField field = new PlayingField();
+		PlayingField field = new PlayingField(3, 3);
 		LinkedOrganism preda;
 		LinkedPredatore predatore;
 		Preda predaPup;
@@ -18,14 +18,12 @@ public class Play {
 		// Default mode.
 		// TODO add different game modes
 		
-		for(int i = 0; i < 5; i++){
-			predatorePup = new Predatore();
-			predatore = new LinkedPredatore(predatorePup, 0, i, field, predatori);
-		}
+		predatorePup = new Predatore();
+		predatore = new LinkedPredatore(predatorePup, 1, 1, field, predatori);
 		
-		for(int i = 0; i < 100; i++){
+		for(int i = 0; i < 3; i++){
 			predaPup = new Preda();
-			preda = new LinkedOrganism(predaPup, (1 + i / 20), (i % 20), field, prede);
+			preda = new LinkedOrganism(predaPup, 0, i, field, prede);
 		}
 		
 		field.shuffle();

@@ -74,13 +74,13 @@ public class LinkedPredatore extends LinkedOrganism {
 			}
 			if(field.getOccupant(newX, newY) == null){
 				field.move(posX, posY, newX, newY);
-				posX = newX;
-				posY = newY;
+				setPosX(newX);
+				setPosY(newY);
 			} else if(field.getOccupant(newX, newY).reveal() instanceof Preda){
 				field.getOccupant(newX, newY).kill();
 				field.move(posX, posY, newX, newY);
-				posX = newX;
-				posY = newY;
+				setPosX(newX);
+				setPosY(newY);
 			} else {
 				throw new Exception("Invalid move: " + dest + " is not an instance of Preda!");
 			}

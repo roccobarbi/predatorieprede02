@@ -167,8 +167,8 @@ public class LinkedOrganism {
 				throw new Exception("Invalid move: " + dest + "! Should have been 1, 3, 5 or 7.");
 			}
 			field.move(posX, posY, newX, newY);
-			posX = newX;
-			posY = newY;
+			setPosX(newX);
+			setPosY(newY);
 		}
 		
 		// Spawn

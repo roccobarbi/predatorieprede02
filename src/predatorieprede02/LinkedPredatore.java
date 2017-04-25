@@ -58,6 +58,7 @@ public class LinkedPredatore extends LinkedOrganism {
 		grid = field.lookAround(posX, posY);
 		dest = self.chooseMove(grid);
 		if(dest > -1){
+			System.out.println(dest + " : " + grid[dest]); // DEBUG: remove after debugging
 			switch(dest){
 			case 1:
 				newY--;
@@ -86,7 +87,8 @@ public class LinkedPredatore extends LinkedOrganism {
 			} else {
 				throw new Exception("Invalid move: " + dest + " is not an instance of Preda!");
 			}
-		} else if (dest == -10) { // If the beast is dead, it kills the beast
+		}
+		if (!self.getIsAlive()) { // If the beast is dead, it kills the beast
 			kill();
 		}
 		

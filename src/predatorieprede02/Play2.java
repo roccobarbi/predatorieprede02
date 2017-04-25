@@ -36,7 +36,8 @@ public class Play2 {
 			// field.print();
 			// keyboard.nextLine();
 			prede.act();
-			for(int k = 0; k < 50; k++) System.out.println();
+			for(int k = 0; k < 10; k++) System.out.println();
+			System.out.println("Starving in: " + predatorePup.getDaysUntilStarve());
 			field.print();
 		}
 	}

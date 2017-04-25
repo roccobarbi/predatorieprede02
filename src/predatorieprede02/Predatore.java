@@ -1,12 +1,24 @@
 package predatorieprede02;
 
+/**
+ * The Predatore class implements an Organismo that is specialised at moving into Preda organisms to eat
+ * them. It moves into Preda organisms whenever possible and it dies if it doesn't eat for a certain
+ * number of turns (3 by default). The default spawn time is 8 turns.
+ * 
+ * @author Rocco Barbini
+ * @see Organismo
+ * @see Preda
+ */
 public class Predatore extends Organismo {
 	
 	// Private fields
+	
 	private int daysUntilStarve;
 	private final int initialDaysUntilStarve;
 	private boolean isAlive;
 
+	// Constructors
+	
 	public Predatore() {
 		this("no name");
 	}
@@ -41,6 +53,10 @@ public class Predatore extends Organismo {
 		isAlive = true;
 	}
 	
+	/**
+	 * It creates a copy of another Predatore.
+	 * @param parent	another Predatore
+	 */
 	public Predatore(Predatore parent){
 		this(parent.getName(), parent.getRepresentation(), parent.getSpecies(), parent.getInitialNextOffspring(), parent.getMoveProbability(), parent.getInitialDaysUntilStarve());
 	}
@@ -48,7 +64,8 @@ public class Predatore extends Organismo {
 	// Accessors
 
 	/**
-	 * This field can only be reset by eat() or reduced by any other function with reduceDaysUntilStarve()
+	 * This field can only be reset by eat() or reduced by any other function with reduceDaysUntilStarve().
+	 * When it reaches zero, the Predatore is killed.
 	 * @return the daysUntilStarve
 	 */
 	public int getDaysUntilStarve() {
@@ -56,19 +73,24 @@ public class Predatore extends Organismo {
 	}
 
 	/**
+	 * The value to which daysUntilStarve can be reset.
 	 * @return the initialDaysUntilStarve
 	 */
 	public int getInitialDaysUntilStarve() {
 		return initialDaysUntilStarve;
 	}
+	
 	/**
+	 * Checks if the Predatore is alive or dead.
 	 * @return true if alive, false if dead
 	 */
 	public boolean getIsAlive(){
 		return isAlive;
 	}
+	
 	/**
 	 * This value can only be set to false, unless it is set by a constructor.
+	 * If the value is true and the argument is false, it sets isAlive to false. Otherwise it does nothing.
 	 * @param	isAlive	boolean value that defines the Predatore as alive or dead
 	 */
 	public void setIsAlive(boolean isAlive){
@@ -76,21 +98,21 @@ public class Predatore extends Organismo {
 			this.isAlive = isAlive;
 		}
 	}
-	/**
-	 * Reduces the value for daysUntilStarve and kills the animal if needed
-	 * @return	the days until starve
-	 */
-	public int reduceDaysUntilStarve(){
-		if(daysUntilStarve < 1) // To correct any errors that might have happened
-			isAlive = false;
-		else
+	
+	// Private support methods
+	
+	// Reduces the value for daysUntilStarve and kills the animal if needed
+	private int reduceDaysUntilStarve(){
+		if(daysUntilStarve > 0) // To avoid negative values, which would make no sense
 			daysUntilStarve--;
+		if(daysUntilStarve < 1) // To correct any errors that might have happened
+			setIsAlive(false);
 		return getDaysUntilStarve();
 	}
-	/**
-	 * It resets the daysUntilStarve. This method should only be called by eat()
-	 */
-	public void resetDaysUntilStarve(){
+
+	// It resets the daysUntilStarve.
+	// This method should only be called when eating.
+	private void resetDaysUntilStarve(){
 		daysUntilStarve = initialDaysUntilStarve;
 	}
 	
@@ -126,13 +148,18 @@ public class Predatore extends Organismo {
 				if(reduceDaysUntilStarve() == 0){ // If no prey was found, the beast is one day closer to starvation
 					move = -10; // The beast is dead, long live the beast!
 				}
+			} else if (available < 0 && move == -1) { // No move was available
+				if(reduceDaysUntilStarve() == 0){ // If no prey was found, the beast is one day closer to starvation
+					move = -10; // The beast is dead, long live the beast!
+				}
 			}
 		}
 		return move;
 	}
 	
 	/**
-	 * @return	an exact copy of the current Predatore
+	 * Copies the current Predatore.
+	 * @return	a safe copy of the current Predatore.
 	 */
 	public Predatore copy(){
 		return new Predatore(this);

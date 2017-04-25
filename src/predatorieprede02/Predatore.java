@@ -148,7 +148,7 @@ public class Predatore extends Organismo {
 				}
 			}
 		}
-		if (getDaysUntilStarve() == 0) {
+		if (getDaysUntilStarve() < 1) {
 			move = -10; // The beast is dead, long live the beast!
 		}
 		return move;

@@ -41,7 +41,9 @@ public class LinkedPredatore extends LinkedOrganism {
 	// Public methods
 
 	/**
-	 * Chooses a move, changes the position accordingly and updates the field
+	 * Chooses a move, changes the position accordingly and updates the field.
+	 * After the move, if this is appropriate, it spawns a new Predatore.
+	 * If the Predatore dies of starvation, it removes the LinkedPredatore from the field and from the list.
 	 * @throws Exception Invalid move. This is a critical error and it should cause the program to stop.
 	 */
 	public void act() throws Exception{
@@ -84,6 +86,8 @@ public class LinkedPredatore extends LinkedOrganism {
 			} else {
 				throw new Exception("Invalid move: " + dest + " is not an instance of Preda!");
 			}
+		} else if (dest == -10) { // If the beast is dead, it kills the beast
+			kill();
 		}
 		
 		// Spawn

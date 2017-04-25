@@ -132,8 +132,14 @@ public class LinkedOrganism {
 	 * Cleanly removes the LinkedOrganism from both the linked list and the field
 	 */
 	public void kill(){
-		if(field instanceof PlayingField) field.remove(posX, posY); // Remove the current element from the playing field
-		if(list instanceof LinkedOrganisms) list.remove(this); // Cleanly removes the current element from the list
+		if(field instanceof PlayingField){
+			field.remove(posX, posY); // Remove the current element from the playing field
+			field = null; // Makes sure that the local link to the playing field is removed
+		}
+		if(list instanceof LinkedOrganisms){
+			list.remove(this); // Cleanly removes the current element from the list
+			list = null; // Makes sure that the local link to the list is removed
+		}
 	}
 	
 	/**

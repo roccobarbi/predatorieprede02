@@ -57,8 +57,9 @@ public class LinkedPredatore extends LinkedOrganism {
 		// Move
 		grid = field.lookAround(posX, posY);
 		dest = self.chooseMove(grid);
+		//for(int i = 0; i < grid.length; i++) System.out.println(grid[i]); // DEBUG: remove after debugging
 		if(dest > -1){
-			System.out.println(dest + " : " + grid[dest]); // DEBUG: remove after debugging
+			//System.out.println(dest + " : " + grid[dest]); // DEBUG: remove after debugging
 			switch(dest){
 			case 1:
 				newY--;

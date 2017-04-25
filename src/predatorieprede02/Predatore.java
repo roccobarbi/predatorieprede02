@@ -127,6 +127,7 @@ public class Predatore extends Organismo {
 		int available = 0;
 		int destination = 0;
 		int move = -10; // Default: the beast is dead and should be removed or managed
+		reduceDaysUntilStarve(); // Unless a Preda is found, the beast is one day closer to starvation
 		if(isAlive){
 			move = -1; // New default: no move.
 			// Odd cells in the grid are those where the predator can move
@@ -145,14 +146,10 @@ public class Predatore extends Organismo {
 					if(destination == 0) move = i;
 					if(grid[i] == null) destination--;
 				}
-				if(reduceDaysUntilStarve() == 0){ // If no prey was found, the beast is one day closer to starvation
-					move = -10; // The beast is dead, long live the beast!
-				}
-			} else if (available < 0 && move == -1) { // No move was available
-				if(reduceDaysUntilStarve() == 0){ // If no prey was found, the beast is one day closer to starvation
-					move = -10; // The beast is dead, long live the beast!
-				}
 			}
+		}
+		if (getDaysUntilStarve() == 0) {
+			move = -10; // The beast is dead, long live the beast!
 		}
 		return move;
 	}

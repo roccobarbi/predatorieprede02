@@ -99,5 +99,34 @@ public class OrganismoTest {
 		dest = organismo.chooseSpawn(grid);
 		assertTrue("organismo did not spawn when it should have", dest > -1);
 	}
+	
+	@Test
+	public void testCopy() {
+		Organismo organismo = new Organismo("organismo", 'g', "generic organism", 0, 100);
+		Organismo cp = organismo.copy();
+		assertFalse("The copy is not safe", organismo == cp);
+	}
+	
+	@Test
+	public void testEquals() {
+		Organismo org01 = new Organismo("organismo01", 'g', "generic organism", 3, 100);
+		Organismo org02 = new Organismo("organismo02", 'g', "generic organism", 3, 100);
+		assertTrue("Equals returns false when true is appropriate", org01.equals(org02));
+		Organismo [] grid = new Organismo [8];
+		for(int i = 0; i < 8; i++) grid[i] = null;
+		org01.chooseMove(grid);
+		assertTrue("Equals returns false because age is different", org01.equals(org02));
+		org01.chooseSpawn(grid);
+		assertTrue("Equals returns false because nextOffspring is different", org01.equals(org02));
+		org01 = new Organismo("organismo01", 'g', "generic organism", 3, 100);
+		org02 = new Organismo("organismo01", 'g', "generic organism", 2, 100);
+		assertFalse("Equals returns true when initialNextOffspring is different", org01.equals(org02));
+		org01 = new Organismo("organismo01", 'g', "generic organism", 3, 100);
+		org02 = new Organismo("organismo01", 'g', "generic organism", 3, 50);
+		assertFalse("Equals returns true when moveProbability is different", org01.equals(org02));
+		org01 = new Organismo("organismo01", 'g', "generic organism", 3, 100);
+		org02 = new Organismo("organismo01", 'g', "generic organism 02", 3, 100);
+		assertFalse("Equals returns true when species is different", org01.equals(org02));
+	}
 
 }

@@ -26,30 +26,36 @@ public class OrganismoTest {
 	public void testGetInitialNextOffspring() {
 		Organismo organismo = new Organismo("organismo", 'g', "generic organism", 5, 80);
 		assertTrue("getInitialNextOffspring did not return expected value at the start", organismo.getInitialNextOffspring() == 5);
-		organismo.loopNextOffspring();
-		assertTrue("getInitialNextOffspring did not return expected value after looping", organismo.getInitialNextOffspring() == 5);
+		Organismo [] grid = new Organismo [8];
+		for(int i = 0; i < 8; i++) grid[i] = null;
+		organismo.chooseSpawn(grid);
+		assertTrue("getInitialNextOffspring did not return expected value after choosing a spawn", organismo.getInitialNextOffspring() == 5);
 	}
 	
 	@Test
 	public void testLoopNextOffspring() {
 		Organismo organismo = new Organismo("organismo", 'g', "generic organism", 4, 80);
 		assertTrue("getNextOffspring did not return expected value at the start", organismo.getNextOffspring() == 4);
-		organismo.loopNextOffspring();
-		organismo.loopNextOffspring();
-		assertTrue("getNextOffspring did not return expected value after looping", organismo.getNextOffspring() == 2);
-		organismo.loopNextOffspring();
-		organismo.loopNextOffspring();
-		organismo.loopNextOffspring();
-		assertTrue("getNextOffspring did not return initial value after complete loop", organismo.getNextOffspring() == 4);
+		Organismo [] grid = new Organismo [8];
+		for(int i = 0; i < 8; i++) grid[i] = null;
+		organismo.chooseSpawn(grid);
+		organismo.chooseSpawn(grid);
+		assertTrue("getNextOffspring did not return expected value after choosing 2 spawns", organismo.getNextOffspring() == 2);
+		organismo.chooseSpawn(grid);
+		organismo.chooseSpawn(grid);
+		organismo.chooseSpawn(grid);
+		assertTrue("getNextOffspring did not return initial value after a complete loop", organismo.getNextOffspring() == 4);
 	}
 
 	@Test
 	public void testIncreaseAge() {
 		Organismo organismo = new Organismo("organismo", 'g', "generic organism", 4, 80);
 		assertTrue("initial age was not zero", organismo.getAge() == 0);
-		organismo.increaseAge();
-		organismo.increaseAge();
-		assertTrue("after two increases, the age was not 2", organismo.getAge() == 2);
+		Organismo [] grid = new Organismo [8];
+		for(int i = 0; i < 8; i++) grid[i] = null;
+		organismo.chooseMove(grid);
+		organismo.chooseMove(grid);
+		assertTrue("after two calls to chooseMove, the age was not 2", organismo.getAge() == 2);
 	}
 
 	@Test

@@ -265,4 +265,24 @@ public class Organismo {
 		public Organismo copy(){
 			return new Organismo(this);
 		}
+		
+		/**
+		 * Checks if an Organismo object has the same species, moveProbability and initialNextOffspring as another.
+		 * Differences in name, age and nextOffspring are not taken into account.
+		 * 
+		 * @return true if they are equal based on the parameters above, false otherwise
+		 */
+		public boolean equals(Object obj){
+			boolean output = false;
+			Organismo org;
+			if(obj instanceof Organismo){
+				org = (Organismo) obj;
+				if(org.getSpecies() == getSpecies() &&
+						org.getInitialNextOffspring() == getInitialNextOffspring() &&
+						org.getMoveProbability() == getMoveProbability()){
+					output = true;
+				}
+			}
+			return output;
+		}
 }

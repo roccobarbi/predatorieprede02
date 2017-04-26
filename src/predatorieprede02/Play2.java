@@ -36,8 +36,13 @@ public class Play2 {
 			predatori.act();
 			prede.act();
 			for(int k = 0; k < 10; k++) System.out.println();
+			System.out.println("================");
 			System.out.println("Starving in: " + predatorePup.getDaysUntilStarve());
+			System.out.println("Age: " + predatorePup.getAge());
+			System.out.println("Next offspring: " + predatorePup.getNextOffspring());
+			System.out.println("----------------");
 			field.print();
+			System.out.println("----------------");
 		}
 	}
 

@@ -139,7 +139,7 @@ public class LinkedPredatore extends LinkedOrganism {
 					errorMessage = "Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.";
 					throw new Exception(errorMessage);
 				}
-				pup = reveal();
+				pup = new Predatore(reveal());
 				lPup = new LinkedPredatore(pup, newX, newY, field);
 				getList().add(lPup);
 				field.spawn(newX, newY, lPup);

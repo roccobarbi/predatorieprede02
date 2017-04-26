@@ -62,11 +62,8 @@ public class LinkedPredatore extends LinkedOrganism {
 		 * - it manages food and starvation;
 		 * - if it's time to do it, it spawns a new Predatore and it adds it to the list and to the field.
 		 * If the Predatore dies of starvation, it removes the LinkedPredatore from the field and from the list.
-		 * 
-		 * @throws Exception Invalid move. This is a critical error and it should cause the program to stop.
-		 * @throws Exception Invalid spawn. This is a critical error and it should cause the program to stop.
 		 */
-		public void act() throws Exception{
+		public void act(){
 			Organismo [] grid;
 			int posX = getPosX(), posY = getPosY();
 			int dest, newX = posX, newY = posY;
@@ -79,39 +76,57 @@ public class LinkedPredatore extends LinkedOrganism {
 			grid = field.lookAround(posX, posY);
 			dest = getSelf().chooseMove(grid);
 			if(dest > -1){
-				switch(dest){
-				case 1:
-					newY--;
-					break;
-				case 3:
-					newX++;
-					break;
-				case 5:
-					newY++;
-					break;
-				case 7:
-					newX--;
-					break;
-				default:
-					errorMessage = "Invalid move: " + dest + "! Should have been 1, 3, 5 or 7.";
-					throw new Exception(errorMessage);
-				}
-				if(newX < 0 || newY < 0){
-					errorMessage = "Invalid move: " + dest + "! X or Y coordinate lower than 0.";
-					throw new Exception(errorMessage);
-				}
-				if(field.getOccupant(newX, newY) == null){
-					field.move(posX, posY, newX, newY);
-					setPosX(newX);
-					setPosY(newY);
-				} else if(field.getOccupant(newX, newY).reveal() instanceof Preda){
-					field.getOccupant(newX, newY).kill();
-					field.move(posX, posY, newX, newY);
-					setPosX(newX);
-					setPosY(newY);
-				} else {
-					errorMessage = "Invalid move: " + dest + " is not null or an instance of Preda!";
-					throw new Exception(errorMessage);
+				try{
+					switch(dest){
+					case 1:
+						newY--;
+						break;
+					case 3:
+						newX++;
+						break;
+					case 5:
+						newY++;
+						break;
+					case 7:
+						newX--;
+						break;
+					default:
+						errorMessage = "Invalid move: " + dest + "! Should have been 1, 3, 5 or 7.";
+						throw new Exception(errorMessage);
+					}
+					// Check: the position can't be negative
+					if(newX < 0 || newY < 0){
+						errorMessage = "Invalid move: " + dest + "! X or Y coordinate lower than 0.";
+						throw new Exception(errorMessage);
+					}
+					if(field.getOccupant(newX, newY) == null){
+						field.move(posX, posY, newX, newY);
+						// Check that the movement was performed correctly
+						if(field.getOccupant(newX, newY) != this || field.getOccupant(posX, posY) != null){
+							errorMessage = "Move failed: the field was not updated!";
+							throw new Exception(errorMessage);
+						}
+						setPosX(newX);
+						setPosY(newY);
+					} else if(field.getOccupant(newX, newY).reveal() instanceof Preda){
+						field.getOccupant(newX, newY).kill();
+						field.move(posX, posY, newX, newY);
+						// Check that the movement was performed correctly
+						if(field.getOccupant(newX, newY) != this || field.getOccupant(posX, posY) != null){
+							errorMessage = "Move failed: the field was not updated!";
+							throw new Exception(errorMessage);
+						}
+						setPosX(newX);
+						setPosY(newY);
+					} else {
+						errorMessage = "Invalid move: " + dest + " is not null or an instance of Preda!";
+						throw new Exception(errorMessage);
+					}
+				} catch (Exception e) {
+					System.out.println("Predatore " + this + " at " + posX + ", " + posY);
+					System.out.println("CRITICAL EXCEPTION DURING MOVEMENT: " + e);
+					System.out.println("SHUTTING DOWN THE APPLICATION!");
+					System.exit(0);
 				}
 			}
 			if (!getSelf().getIsAlive()) { // If the beast is dead, it kills the beast
@@ -122,27 +137,48 @@ public class LinkedPredatore extends LinkedOrganism {
 			grid = field.lookAround(posX, posY);
 			dest = getSelf().chooseSpawn(grid);
 			if(dest > -1){
-				switch(dest){
-				case 1:
-					newY--;
-					break;
-				case 3:
-					newX++;
-					break;
-				case 5:
-					newY++;
-					break;
-				case 7:
-					newX--;
-					break;
-				default:
-					errorMessage = "Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.";
-					throw new Exception(errorMessage);
+				try{
+					switch(dest){
+					case 1:
+						newY--;
+						break;
+					case 3:
+						newX++;
+						break;
+					case 5:
+						newY++;
+						break;
+					case 7:
+						newX--;
+						break;
+					default:
+						errorMessage = "Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.";
+						throw new Exception(errorMessage);
+					}
+					// Create the new Predatore
+					pup = new Predatore(reveal());
+					lPup = new LinkedPredatore(pup, newX, newY, field);
+					// Add it to the list
+					getList().add(lPup);
+					// Check that the addition to the list was performed correctly
+					if(!getList().isHere(lPup)){
+						errorMessage = "Spawn failed: the list was not updated!";
+						throw new Exception(errorMessage);
+					}
+					// Spawn it to the field
+					field.spawn(newX, newY, lPup);
+					// Check that the spawn was performed correctly
+					if(field.getOccupant(newX, newY) != lPup){
+						errorMessage = "Spawn failed: the field was not updated!";
+						throw new Exception(errorMessage);
+					}
+				} catch (Exception e) {
+					System.out.println("Predatore " + this + " at " + posX + ", " + posY);
+					System.out.println("Trying to spawn Predatore at " + newX + ", " + newY);
+					System.out.println("CRITICAL EXCEPTION DURING SPAWN: " + e);
+					System.out.println("SHUTTING DOWN THE APPLICATION!");
+					System.exit(0);
 				}
-				pup = new Predatore(reveal());
-				lPup = new LinkedPredatore(pup, newX, newY, field);
-				getList().add(lPup);
-				field.spawn(newX, newY, lPup);
 			}
 		}
 		

@@ -39,14 +39,15 @@ public class LinkedPredatore extends LinkedOrganism {
 	// Accessors
 	
 		/**
+		 * Outputs the address to the actual encapsulated Predatore object, not a safe copy.
 		 * @return the encapsulated Predatore object
 		 */
-		public Predatore getSelf() {
+		private Predatore getSelf() {
 			return self;
 		}
 	
 		/**
-		 * @param self the self to set
+		 * @param self	the Predatore object to set as self
 		 */
 		private void setSelf(Predatore self) {
 			this.self = self;
@@ -76,7 +77,7 @@ public class LinkedPredatore extends LinkedOrganism {
 			
 			// Move
 			grid = field.lookAround(posX, posY);
-			dest = self.chooseMove(grid);
+			dest = getSelf().chooseMove(grid);
 			if(dest > -1){
 				switch(dest){
 				case 1:
@@ -113,13 +114,13 @@ public class LinkedPredatore extends LinkedOrganism {
 					throw new Exception(errorMessage);
 				}
 			}
-			if (!self.getIsAlive()) { // If the beast is dead, it kills the beast
+			if (!getSelf().getIsAlive()) { // If the beast is dead, it kills the beast
 				kill();
 			}
 			
 			// Spawn
 			grid = field.lookAround(posX, posY);
-			dest = self.chooseSpawn(grid);
+			dest = getSelf().chooseSpawn(grid);
 			if(dest > -1){
 				switch(dest){
 				case 1:
@@ -138,7 +139,7 @@ public class LinkedPredatore extends LinkedOrganism {
 					errorMessage = "Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.";
 					throw new Exception(errorMessage);
 				}
-				pup = self.copy();
+				pup = reveal();
 				lPup = new LinkedPredatore(pup, newX, newY, field);
 				getList().add(lPup);
 				field.spawn(newX, newY, lPup);
@@ -150,7 +151,7 @@ public class LinkedPredatore extends LinkedOrganism {
 		 * @return	a Predatore that is a safe copy of the occupant
 		 */
 		public Predatore reveal(){ // Overloaded to be sure that the type is right
-			return self.copy();
+			return getSelf().copy();
 		}
 
 }

@@ -169,17 +169,19 @@ public class Organismo {
 			nextOffspring = initialNextOffspring;
 		}
 		
-		// It increases the age for this organism
-		private void increaseAge(){
-			this.age++;
-		}
-		
 		// It loops to the next available value for nextOffspring
 		private void loopNextOffspring(){
 			if(nextOffspring < 1) // To correct any errors that might have happened
 				resetNextOffspring();
 			else
 				nextOffspring--;
+		}
+		
+	// Protected methods
+		
+		// It increases the age for this organism
+		protected void increaseAge(){
+			this.age++;
 		}
 	
 	// Public methods

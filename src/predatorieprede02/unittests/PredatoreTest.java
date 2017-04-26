@@ -68,5 +68,76 @@ public class PredatoreTest {
 		dest = predatore0.chooseMove(grid);
 		assertFalse("Did move to a non-empty, non-prey cell", dest == 7 || dest == 5 || dest == 3 || dest == 1);
 	}
+	
+	@Test
+	public void testGetInitialNextOffspring() {
+		Predatore predatore = new Predatore("no-name", 'X', "generic Predatore", 8, 100, 4);
+		assertTrue("getInitialNextOffspring did not return expected value at the start", predatore.getInitialNextOffspring() == 8);
+		Organismo [] grid = new Organismo [8];
+		for(int i = 0; i < 8; i++) grid[i] = null;
+		predatore.chooseSpawn(grid);
+		assertTrue("getInitialNextOffspring did not return expected value after choosing a spawn", predatore.getInitialNextOffspring() == 8);
+	}
+	
+	@Test
+	public void testLoopNextOffspring() {
+		Predatore predatore = new Predatore("no-name", 'X', "generic Predatore", 8, 100, 4);
+		assertTrue("getNextOffspring did not return expected value at the start", predatore.getNextOffspring() == 8);
+		Organismo [] grid = new Organismo [8];
+		for(int i = 0; i < 8; i++) grid[i] = null;
+		predatore.chooseSpawn(grid);
+		predatore.chooseSpawn(grid);
+		assertTrue("getNextOffspring did not return expected value after choosing 2 spawns", predatore.getNextOffspring() == 6);
+		predatore.chooseSpawn(grid);
+		predatore.chooseSpawn(grid);
+		predatore.chooseSpawn(grid);
+		predatore.chooseSpawn(grid);
+		predatore.chooseSpawn(grid);
+		predatore.chooseSpawn(grid);
+		predatore.chooseSpawn(grid);
+		assertTrue("getNextOffspring did not return initial value after a complete loop", predatore.getNextOffspring() == 8);
+	}
+	
+	@Test
+	public void testIncreaseAge() {
+		Predatore predatore = new Predatore("no-name", 'X', "generic Predatore", 8, 100, 4);
+		assertTrue("initial age was not zero", predatore.getAge() == 0);
+		Organismo [] grid = new Organismo [8];
+		for(int i = 0; i < 8; i++) grid[i] = null;
+		predatore.chooseMove(grid);
+		predatore.chooseMove(grid);
+		assertTrue("after two calls to chooseMove, the age was not 2", predatore.getAge() == 2);
+		predatore.chooseMove(grid);
+		predatore.chooseMove(grid);
+		predatore.chooseMove(grid);
+		predatore.chooseMove(grid);
+		System.out.println(predatore.getAge());
+		assertTrue("after starving the beast, the age was not 4", predatore.getAge() == 4);
+	}
+	
+	@Test
+	public void testEquals() {
+		Predatore pred01 = new Predatore("predatore01", 'X', "generic Predatore", 8, 100, 4);
+		Predatore pred02 = new Predatore("predatore01", 'X', "generic Predatore", 8, 100, 4);
+		assertTrue("Equals returns false when true is appropriate", pred01.equals(pred02));
+		Organismo [] grid = new Organismo [8];
+		for(int i = 0; i < 8; i++) grid[i] = null;
+		pred01.chooseMove(grid);
+		assertTrue("Equals returns false because age is different", pred01.equals(pred02));
+		pred01.chooseSpawn(grid);
+		assertTrue("Equals returns false because nextOffspring is different", pred01.equals(pred02));
+		pred01 = new Predatore("predatore01", 'X', "generic Predatore", 8, 100, 4);
+		pred02 = new Predatore("predatore01", 'X', "generic Predatore", 5, 100, 4);
+		assertFalse("Equals returns true when initialNextOffspring is different", pred01.equals(pred02));
+		pred01 = new Predatore("predatore01", 'X', "generic Predatore", 8, 100, 4);
+		pred02 = new Predatore("predatore01", 'X', "generic Predatore", 8, 50, 4);
+		assertFalse("Equals returns true when moveProbability is different", pred01.equals(pred02));
+		pred01 = new Predatore("predatore01", 'X', "generic Predatore", 8, 100, 4);
+		pred02 = new Predatore("predatore01", 'X', "generic Predatore 002", 8, 50, 4);
+		assertFalse("Equals returns true when species is different", pred01.equals(pred02));
+		pred01 = new Predatore("predatore01", 'X', "generic Predatore", 8, 100, 4);
+		pred02 = new Predatore("predatore01", 'X', "generic Predatore", 8, 100, 6);
+		assertFalse("Equals returns true when initialDaysUntilStarve is different", pred01.equals(pred02));
+	}
 
 }

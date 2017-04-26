@@ -33,7 +33,7 @@ public class LinkedPredatore extends LinkedOrganism {
 		
 		public LinkedPredatore(Predatore predatore, int posX, int posY, PlayingField field, LinkedOrganisms list) {
 			super(predatore, posX, posY, field, list);
-			// setSelf(predatore);
+			setSelf(predatore);
 		}
 	
 	// Accessors

@@ -18,12 +18,14 @@ public class Play2 {
 		// Default mode.
 		// TODO add different game modes
 		
-		predatorePup = new Predatore();
-		predatore = new LinkedPredatore(predatorePup, 1, 1, field, predatori);
+		predatorePup = new Predatore("predatore", 'X', "myPredatore", 2, 100, 3);
+		predatore = new LinkedPredatore(predatorePup, 1, 1, field);
+		predatore.setList(predatori);
 		
 		for(int i = 0; i < 3; i++){
-			predaPup = new Preda();
-			preda = new LinkedOrganism(predaPup, 0, i, field, prede);
+			predaPup = new Preda("preda", 'o', "myPreda", 3, 50);
+			preda = new LinkedOrganism(predaPup, 0, i, field);
+			preda.setList(prede);
 		}
 		
 		field.shuffle();

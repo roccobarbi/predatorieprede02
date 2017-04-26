@@ -177,77 +177,138 @@ public class LinkedOrganism {
 	
 		/**
 		 * Cleanly removes the LinkedOrganism from both the linked list and the field
+		 * 
+		 * Preconditions:
+		 * - the playing field has a remove() method that works as intended;
+		 * - the linked list has a remove() method that works as intended.
+		 * 
+		 * Postconditions:
+		 * - the field and list variables are null;
+		 * - the field position previously occupied by this instance is null;
+		 * - this instance can't be found in the linked list.
 		 */
 		public void kill(){
 			if(field instanceof PlayingField){
 				field.remove(posX, posY); // Remove the current element from the playing field
-				field = null; // Makes sure that the local link to the playing field is removed
+				setField(null); // Makes sure that the local link to the playing field is removed
 			}
 			if(list instanceof LinkedOrganisms){
 				list.remove(this); // Cleanly removes the current element from the list
-				list = null; // Makes sure that the local link to the list is removed
+				setList(null); // Makes sure that the local link to the list is removed
 			}
 		}
 		
 		/**
-		 * Chooses a move, changes the position accordingly and updates the field
-		 * @throws Exception Invalid move. This is a critical error and it should cause the program to stop.
+		 * Manages the action that an Organismo is allowed to do during a turn:
+		 * - it chooses a move;
+		 * - if it is valid, it changes the position accordingly and it updates the field;
+		 * - if it's time to do it, it spawns a new Predatore and it adds it to the list and to the field.
 		 */
-		public void act() throws Exception{
-			Organismo [] grid;
-			int dest, newX = posX, newY = posY;
-			Organismo pup;
-			LinkedOrganism lPup;
+		public void act() {
+			Organismo [] grid; // Used to look around the current position when choosing moves and spawns
+			int dest; // Possible values: -10, -1, 1, 3, 5, 7
+			int newX = posX, newY = posY; // Used to manage movement and spawns
+			Organismo pup; // Used to manage spawns
+			LinkedOrganism lPup; // Used to manage spawns
+			String errorMessage; // Used for cleaner exception management
 			
 			// Move
-			grid = field.lookAround(posX, posY);
+			grid = field.lookAround(posX, posY); // Receive a description of the sorroundings
+			// Decide the direction for the next movement, if any, and manage the enclosed Organismo's age
 			dest = self.chooseMove(grid);
+			// Check the direction of movement and set the new grid position accordingly
 			if(dest > -1){
-				switch(dest){
-				case 1:
-					newY--;
-					break;
-				case 3:
-					newX++;
-					break;
-				case 5:
-					newY++;
-					break;
-				case 7:
-					newX--;
-					break;
-				default:
-					throw new Exception("Invalid move: " + dest + "! Should have been 1, 3, 5 or 7.");
+				try{
+					switch(dest){
+					case 1:
+						newY--;
+						break;
+					case 3:
+						newX++;
+						break;
+					case 5:
+						newY++;
+						break;
+					case 7:
+						newX--;
+						break;
+					default:
+						errorMessage = "Invalid move: " + dest + "! Should have been 1, 3, 5 or 7.";
+						throw new Exception(errorMessage);
+					}
+					// Check: the position can't be negative
+					if(newX < 0 || newY < 0){
+						errorMessage = "Invalid move: " + dest + "! X or Y coordinate lower than 0.";
+						throw new Exception(errorMessage);
+					}
+					// Perform the movement in the field
+					field.move(posX, posY, newX, newY);
+					// Check that the movement was performed correctly
+					if(field.getOccupant(newX, newY) != this || field.getOccupant(posX, posY) != null){
+						errorMessage = "Move failed: the field was not updated!";
+						throw new Exception(errorMessage);
+					}
+					// Store the new position in the private variables
+					setPosX(newX);
+					setPosY(newY);
+				} catch (Exception e){
+					System.out.println("Organismo " + this + " at " + posX + ", " + posY);
+					System.out.println("CRITICAL EXCEPTION DURING MOVEMENT: " + e);
+					System.out.println("SHUTTING DOWN THE APPLICATION!");
+					System.exit(0);
 				}
-				field.move(posX, posY, newX, newY);
-				setPosX(newX);
-				setPosY(newY);
 			}
 			
 			// Spawn
 			grid = field.lookAround(posX, posY);
 			dest = self.chooseSpawn(grid);
 			if(dest > -1){
-				switch(dest){
-				case 1:
-					newY--;
-					break;
-				case 3:
-					newX++;
-					break;
-				case 5:
-					newY++;
-					break;
-				case 7:
-					newX--;
-					break;
-				default:
-					throw new Exception("Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.");
+				try{
+					switch(dest){
+					case 1:
+						newY--;
+						break;
+					case 3:
+						newX++;
+						break;
+					case 5:
+						newY++;
+						break;
+					case 7:
+						newX--;
+						break;
+					default:
+						throw new Exception("Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.");
+					}
+					// Check: the position can't be negative
+					if(newX < 0 || newY < 0){
+						errorMessage = "Invalid move: " + dest + "! X or Y coordinate lower than 0.";
+						throw new Exception(errorMessage);
+					}
+					// Create the new Organismo
+					pup = self.copy();
+					lPup = new LinkedOrganism(pup, newY, newX, field);
+					// Add it to the list
+					list.add(lPup);
+					// Check that the addition to the list was performed correctly
+					if(!list.isHere(lPup)){
+						errorMessage = "Spawn failed: the list was not updated!";
+						throw new Exception(errorMessage);
+					}
+					// Spawn it to the field
+					field.spawn(newX, newY, lPup);
+					// Check that the spawn was performed correctly
+					if(field.getOccupant(newX, newY) != lPup){
+						errorMessage = "Spawn failed: the field was not updated!";
+						throw new Exception(errorMessage);
+					}
+				} catch (Exception e) {
+					System.out.println("Organismo " + this + " at " + posX + ", " + posY);
+					System.out.println("Trying to spawn Organismo at " + newX + ", " + newY);
+					System.out.println("CRITICAL EXCEPTION DURING SPAWN: " + e);
+					System.out.println("SHUTTING DOWN THE APPLICATION!");
+					System.exit(0);
 				}
-				pup = self.copy();
-				lPup = new LinkedOrganism(pup, newY, newX, field);
-				list.add(lPup);
-				field.spawn(newX, newY, lPup);
 			}
 		}
 		

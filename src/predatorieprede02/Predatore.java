@@ -13,53 +13,53 @@ public class Predatore extends Organismo {
 	
 	// Private fields
 	
-	private int daysUntilStarve;
-	private final int initialDaysUntilStarve;
-	private boolean isAlive;
+		private int daysUntilStarve;
+		private final int initialDaysUntilStarve;
+		private boolean isAlive;
 
 	// Constructors
 	
-	public Predatore() {
-		this("no name");
-	}
-
-	public Predatore(String name) {
-		this(name, 'X');
-	}
-
-	public Predatore(String name, char representation) {
-		this(name, representation, "generic predatore");
-	}
-
-	public Predatore(String name, char representation, String species) {
-		this(name, representation, species, 8);
-	}
-
-	public Predatore(String name, char representation, String species, int nextOffspring) {
-		this(name, representation, species, nextOffspring, 100);
-	}
-
-	public Predatore(String name, char representation, String species, int nextOffspring, int moveProbability) {
-		super(name, representation, species, nextOffspring, moveProbability);
-		this.initialDaysUntilStarve = 3;
-		this.daysUntilStarve = 3;
-		isAlive = true;
-	}
+		public Predatore() {
+			this("no name");
+		}
 	
-	public Predatore(String name, char representation, String species, int nextOffspring, int moveProbability, int daysUntilStarve) {
-		super(name, representation, species, nextOffspring, moveProbability);
-		this.initialDaysUntilStarve = daysUntilStarve;
-		this.daysUntilStarve = daysUntilStarve;
-		isAlive = true;
-	}
+		public Predatore(String name) {
+			this(name, 'X');
+		}
 	
-	/**
-	 * It creates a copy of another Predatore.
-	 * @param parent	another Predatore
-	 */
-	public Predatore(Predatore parent){
-		this(parent.getName(), parent.getRepresentation(), parent.getSpecies(), parent.getInitialNextOffspring(), parent.getMoveProbability(), parent.getInitialDaysUntilStarve());
-	}
+		public Predatore(String name, char representation) {
+			this(name, representation, "generic predatore");
+		}
+	
+		public Predatore(String name, char representation, String species) {
+			this(name, representation, species, 8);
+		}
+	
+		public Predatore(String name, char representation, String species, int nextOffspring) {
+			this(name, representation, species, nextOffspring, 100);
+		}
+	
+		public Predatore(String name, char representation, String species, int nextOffspring, int moveProbability) {
+			super(name, representation, species, nextOffspring, moveProbability);
+			this.initialDaysUntilStarve = 3;
+			this.daysUntilStarve = 3;
+			isAlive = true;
+		}
+		
+		public Predatore(String name, char representation, String species, int nextOffspring, int moveProbability, int daysUntilStarve) {
+			super(name, representation, species, nextOffspring, moveProbability);
+			this.initialDaysUntilStarve = daysUntilStarve;
+			this.daysUntilStarve = daysUntilStarve;
+			isAlive = true;
+		}
+		
+		/**
+		 * It creates a copy of another Predatore.
+		 * @param parent	another Predatore
+		 */
+		public Predatore(Predatore parent){
+			this(parent.getName(), parent.getRepresentation(), parent.getSpecies(), parent.getInitialNextOffspring(), parent.getMoveProbability(), parent.getInitialDaysUntilStarve());
+		}
 	
 	// Accessors
 

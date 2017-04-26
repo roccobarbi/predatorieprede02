@@ -89,8 +89,7 @@ public class OrganismoTest {
 		organismo = new Organismo("organismo", 'g', "generic organism", 2, 50);
 		dest = organismo.chooseSpawn(grid);
 		assertTrue("organismo spawned when it shouldn't have", dest == -1);
-		organismo.loopNextOffspring();
-		organismo.loopNextOffspring();
+		dest = organismo.chooseSpawn(grid);
 		dest = organismo.chooseSpawn(grid);
 		assertTrue("organismo did not spawn when it should have", dest > -1);
 	}

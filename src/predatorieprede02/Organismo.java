@@ -188,6 +188,7 @@ public class Organismo {
 				}
 			}
 		}
+		loopNextOffspring(); // Loop to the next offspring
 		return offspring;
 	};
 	

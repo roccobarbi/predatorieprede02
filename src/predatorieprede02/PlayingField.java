@@ -161,13 +161,25 @@ public class PlayingField {
 	public void print(){
 		char item = ' ';
 		System.out.println();
+		System.out.print(" ");
+		for(int k = 1; k < occupant[0].length + 1; k++){
+			System.out.print("-");
+		}
+		System.out.println();
 		for(int i = 0; i < occupant.length; i++){
+			System.out.print("|");
 			for(int k = 0; k < occupant[i].length; k++){
 				item = occupant[i][k] != null ? occupant[i][k].reveal().getRepresentation() : ' '; 
 				System.out.print(item);
 			}
+			System.out.print("|");
 			System.out.println();
 		}
+		System.out.print(" ");
+		for(int k = 1; k < occupant[0].length + 1; k++){
+			System.out.print("-");
+		}
+		System.out.println();
 	}
 
 }

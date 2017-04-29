@@ -134,50 +134,52 @@ public class LinkedPredatore extends LinkedOrganism {
 			}
 			
 			// Spawn
-			grid = field.lookAround(posX, posY);
-			dest = getSelf().chooseSpawn(grid);
-			if(dest > -1){
-				try{
-					switch(dest){
-					case 1:
-						newY--;
-						break;
-					case 3:
-						newX++;
-						break;
-					case 5:
-						newY++;
-						break;
-					case 7:
-						newX--;
-						break;
-					default:
-						errorMessage = "Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.";
-						throw new Exception(errorMessage);
+			if(self.getIsAlive()){
+				grid = field.lookAround(posX, posY);
+				dest = self.chooseSpawn(grid);
+				if(dest > -1){
+					try{
+						switch(dest){
+						case 1:
+							newY--;
+							break;
+						case 3:
+							newX++;
+							break;
+						case 5:
+							newY++;
+							break;
+						case 7:
+							newX--;
+							break;
+						default:
+							errorMessage = "Invalid spawn: " + dest + "! Should have been 1, 3, 5 or 7.";
+							throw new Exception(errorMessage);
+						}
+						// Create the new Predatore
+						pup = new Predatore(reveal());
+						lPup = new LinkedPredatore(pup, newX, newY, field);
+						// Add it to the list
+						getList().add(lPup);
+						// Check that the addition to the list was performed correctly
+						if(!getList().isHere(lPup)){
+							errorMessage = "Spawn failed: the list was not updated!";
+							throw new Exception(errorMessage);
+						}
+						// Spawn it to the field
+						field.spawn(newX, newY, lPup);
+						// Check that the spawn was performed correctly
+						if(field.getOccupant(newX, newY) != lPup){
+							errorMessage = "Spawn failed: the field was not updated!";
+							throw new Exception(errorMessage);
+						}
+					} catch (Exception e) {
+						System.out.println("Predatore " + this + " at " + posX + ", " + posY);
+						System.out.println("Trying to spawn Predatore at " + newX + ", " + newY);
+						System.out.println("CRITICAL EXCEPTION DURING SPAWN: " + e);
+						System.out.println("SHUTTING DOWN THE APPLICATION!");
+						System.exit(0);
 					}
-					// Create the new Predatore
-					pup = new Predatore(reveal());
-					lPup = new LinkedPredatore(pup, newX, newY, field);
-					// Add it to the list
-					getList().add(lPup);
-					// Check that the addition to the list was performed correctly
-					if(!getList().isHere(lPup)){
-						errorMessage = "Spawn failed: the list was not updated!";
-						throw new Exception(errorMessage);
-					}
-					// Spawn it to the field
-					field.spawn(newX, newY, lPup);
-					// Check that the spawn was performed correctly
-					if(field.getOccupant(newX, newY) != lPup){
-						errorMessage = "Spawn failed: the field was not updated!";
-						throw new Exception(errorMessage);
-					}
-				} catch (Exception e) {
-					System.out.println("Predatore " + this + " at " + posX + ", " + posY);
-					System.out.println("Trying to spawn Predatore at " + newX + ", " + newY);
-					System.out.println("CRITICAL EXCEPTION DURING SPAWN: " + e);
-					System.out.println("SHUTTING DOWN THE APPLICATION!");
-					System.exit(0);
 				}
 			}
 		}

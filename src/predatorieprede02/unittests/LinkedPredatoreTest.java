@@ -34,13 +34,14 @@ public class LinkedPredatoreTest {
 		assertTrue("predatore has a wrong move initialDaysUntilStarve", ((Predatore)field.getOccupant(0, 0).reveal()).getInitialDaysUntilStarve() == 4);
 		assertTrue("lFiller was not created where it should be", field.getOccupant(1, 0) == lFiller);
 		predatore.act();
+		// Predatore can only move to 0,1
 		assertFalse("predatore is still at origin", field.getOccupant(0, 0) == predatore);
-		assertTrue("predatore has not moved to adjacent cell", field.getOccupant(0, 1) == predatore || field.getOccupant(1, 0) == predatore);
-		assertTrue("predatore has not spawned", field.getOccupant(0, 0) != null || field.getOccupant(1, 1) != null ||
-				field.getOccupant(0, 2) != null || field.getOccupant(0, 2) != null);
-		assertTrue("organismo has not spawned an Organismo", (field.getOccupant(0, 0) != null && field.getOccupant(0, 0).reveal() instanceof Predatore) ||
+		assertTrue("predatore has not moved to adjacent cell", field.getOccupant(0, 1) == predatore);
+		assertFalse("predatore has moved to occcupied cell (not Preda)", field.getOccupant(1, 0) == predatore);
+		// Predatore can only move to 0,1, so it can only spawn to (0,0), (1,1) or (0,2)
+		assertTrue("predatore in (0,1) has not spawned", field.getOccupant(0, 0) != null || field.getOccupant(1, 1) != null || field.getOccupant(0, 2) != null);;
+		assertTrue("predatore has not spawned a Predatore", (field.getOccupant(0, 0) != null && field.getOccupant(0, 0).reveal() instanceof Predatore) ||
 				(field.getOccupant(1, 1) != null && field.getOccupant(1, 1).reveal() instanceof Predatore) ||
-				(field.getOccupant(2, 0) != null && field.getOccupant(2, 0).reveal() instanceof Predatore) ||
 				(field.getOccupant(0, 2) != null && field.getOccupant(0, 2).reveal() instanceof Predatore));
 	}
 

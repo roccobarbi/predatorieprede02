@@ -234,7 +234,7 @@ public class Organismo {
 			int offspring = -1;
 			int available = 0;
 			int destination = 0;
-			
+
 			if(this.getNextOffspring() == 0){
 				for(int i = 1; i < 8; i +=2){
 					if(grid[i] == null) available++; // check if the cell is empty and flag it as available

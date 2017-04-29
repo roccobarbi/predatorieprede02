@@ -65,15 +65,14 @@ public class LinkedPredatore extends LinkedOrganism {
 		 */
 		public void act(){
 			Organismo [] grid;
-			int posX = getPosX(), posY = getPosY();
-			int dest, newX = posX, newY = posY;
+			int dest, newX = getPosX(), newY = getPosY();
 			Predatore pup;
 			LinkedPredatore lPup;
 			PlayingField field = getField();
 			String errorMessage;
 			
 			// Move
-			grid = field.lookAround(posX, posY);
+			grid = field.lookAround(getPosX(), getPosY());
 			dest = getSelf().chooseMove(grid);
 			if(dest > -1){
 				try{
@@ -108,20 +107,23 @@ public class LinkedPredatore extends LinkedOrganism {
 					
 					// Check if there is a Preda at destination and act accordingly
 					if(field.getOccupant(newX, newY) == null){ // There is no Preda
-						field.move(posX, posY, newX, newY);
+						field.move(getPosX(), getPosY(), newX, newY);
 						// Check that the movement was performed correctly
-						if(field.getOccupant(newX, newY) != this || field.getOccupant(posX, posY) != null){
-							errorMessage = "Move failed: the field was not updated!";
+						if(field.getOccupant(newX, newY) != this || field.getOccupant(getPosX(), getPosY()) != null){
+							errorMessage = "Move failed (without Preda): the field was not updated!";
 							throw new Exception(errorMessage);
 						}
 						setPosX(newX);
 						setPosY(newY);
 					} else if(field.getOccupant(newX, newY).reveal() instanceof Preda){
 						field.getOccupant(newX, newY).kill();
-						field.move(posX, posY, newX, newY);
+						System.out.println(getPosX() + "," + getPosY() + " : " + field.getOccupant(getPosX(), getPosY())); // DEBUG
+						field.move(getPosX(), getPosY(), newX, newY);
+						System.out.println(newX + "," + newY + " : " + field.getOccupant(newX, newY)); // DEBUG
+						System.out.println("this: " + this); // DEBUG
 						// Check that the movement was performed correctly
-						if(field.getOccupant(newX, newY) != this || field.getOccupant(posX, posY) != null){
-							errorMessage = "Move failed: the field was not updated!";
+						if(field.getOccupant(newX, newY) != this || field.getOccupant(getPosX(), getPosY()) != null){
+							errorMessage = "Move failed (with Preda): the field was not updated!";
 							throw new Exception(errorMessage);
 						}
 						setPosX(newX);
@@ -131,7 +133,8 @@ public class LinkedPredatore extends LinkedOrganism {
 						throw new Exception(errorMessage);
 					}
 				} catch (Exception e) {
-					System.out.println("Predatore " + this + " at " + posX + ", " + posY);
+					field.print();
+					System.out.println("Predatore " + this + " at " + getPosX() + ", " + getPosY());
 					System.out.println("CRITICAL EXCEPTION DURING MOVEMENT: " + e);
 					System.out.println("SHUTTING DOWN THE APPLICATION!");
 					System.exit(0);

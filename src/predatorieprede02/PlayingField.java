@@ -77,6 +77,20 @@ public class PlayingField {
 		public int getYLength(){
 			return yLength;
 		}
+		
+	// Private methods
+		
+		// Used to set an occupant
+		// Private method: the x and y coordinates are already inverted
+		private void setOccupant(int y, int x, LinkedOrganism pup){
+			occupant[y][x] = pup;
+		}
+		
+		// Used to nullify an occupant
+		// Private method: the x and y coordinates are already inverted
+		private void nullifyOccupant(int y, int x){
+			occupant[y][x] = null;
+		}
 	
 	// Public methods
 	
@@ -176,14 +190,17 @@ public class PlayingField {
 		 */
 		public void move(int fromX, int fromY, int toX, int toY){ // X and Y are inverted in the array
 			try{
+				LinkedOrganism temp;
 				if(fromX < 0 || fromY < 0 || fromX >= xLength || fromY >= yLength){
 					throw new Exception("Coordinates out of bounds.");
 				}
 				if(toX < 0 || toY < 0 || toX >= xLength || toY >= yLength){
 					throw new Exception("Coordinates out of bounds.");
 				}
-				occupant[toY][toX] = occupant[fromY][fromX];
-				occupant[fromY][fromX] = null;
+				temp = getOccupant(fromX, fromY);
+				setOccupant(toY, toX, temp);
+				nullifyOccupant(fromY, fromX);
+				if(getOccupant(toX, toY) != temp) throw new Exception("CRITICAL ERROR: MOVE WAS NOT COMPLETED!"); // Safety check
 			} catch (Exception e){
 				System.out.println("Critical error: " + e.getMessage());
 				System.out.println("Stopping execution");
@@ -223,12 +240,12 @@ public class PlayingField {
 				occupant[newN / occupant.length][newN % occupant.length] = temp;
 				// Update the coordinates stored within each moved element
 				if(occupant[i / occupant.length][i % occupant.length] instanceof LinkedOrganism){
-					occupant[i / occupant.length][i % occupant.length].setPosX(i / occupant.length);
-					occupant[i / occupant.length][i % occupant.length].setPosY(i % occupant.length);
+					occupant[i / occupant.length][i % occupant.length].setPosX(i % occupant.length);
+					occupant[i / occupant.length][i % occupant.length].setPosY(i / occupant.length);
 				}
 				if (occupant[newN / occupant.length][newN % occupant.length] instanceof LinkedOrganism){
-					occupant[newN / occupant.length][newN % occupant.length].setPosX(newN / occupant.length);
-					occupant[newN / occupant.length][newN % occupant.length].setPosY(newN % occupant.length);
+					occupant[newN / occupant.length][newN % occupant.length].setPosX(newN % occupant.length);
+					occupant[newN / occupant.length][newN % occupant.length].setPosY(newN / occupant.length);
 				}
 			}
 		}

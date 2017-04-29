@@ -189,7 +189,7 @@ public class LinkedOrganism {
 		 */
 		public void kill(){
 			if(field instanceof PlayingField){
-				field.remove(posX, posY); // Remove the current element from the playing field
+				field.remove(getPosX(), getPosY()); // Remove the current element from the playing field
 				setField(null); // Makes sure that the local link to the playing field is removed
 			}
 			if(list instanceof LinkedOrganisms){
@@ -242,7 +242,7 @@ public class LinkedOrganism {
 						throw new Exception(errorMessage);
 					}
 					// Perform the movement in the field
-					field.move(posX, posY, newX, newY);
+					field.move(getPosX(), getPosY(), newX, newY);
 					// Check that the movement was performed correctly
 					if(field.getOccupant(newX, newY) != this || field.getOccupant(posX, posY) != null){
 						errorMessage = "Move failed: the field was not updated!";
@@ -252,6 +252,7 @@ public class LinkedOrganism {
 					setPosX(newX);
 					setPosY(newY);
 				} catch (Exception e){
+					field.print();
 					System.out.println("Organismo " + this + " at " + posX + ", " + posY);
 					System.out.println("CRITICAL EXCEPTION DURING MOVEMENT: " + e);
 					System.out.println("SHUTTING DOWN THE APPLICATION!");

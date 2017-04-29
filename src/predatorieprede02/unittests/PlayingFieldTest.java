@@ -30,7 +30,7 @@ public class PlayingFieldTest {
 		Organismo [] grid = field.lookAround(0, 0);
 		assertFalse("slot out of the playing field is null", grid[0] == null);
 		assertFalse("slot out of the playing field is null", grid[2] == null);
-		assertFalse("slot out of the playing field is null", grid[7] == null);
+		assertFalse("slot out of the playing field is null", grid[6] == null);
 		assertTrue("good slot is not null", grid[3] == null);
 		assertTrue("occupied slot is null", grid[4] != null);
 		assertTrue("occupied slot does not contain Organismo", grid[4] instanceof Organismo);

@@ -1,33 +1,82 @@
 package predatorieprede02;
 
+/**
+ * The PlayingField class defines a playing field, which can be imagined as a bidimensional array of width X and height Y.
+ * 
+ * The implementation of this class, or any class derived from it by inheritance, is irrelevant as long as these characteristics are kept:
+ * - x describes the horizontal axis, from left to right;
+ * - y describes the vertical axis, from top to bottom;
+ * - the point (0,0) is at the top left;
+ * - xLength describes the length (cardinality) of the x axis;
+ * - yLength describes the length (cardinality) of tye y axis;
+ * - all coordinates are passed to the public methods in the intuitive (x, y) order.
+ * 
+ * Each cell in the PlayingField is occupied by a LinkedOrganism, or it is null. When exporting grids from the PlayingField, any element that is
+ * outside the field's boundaries (e.g. the line above the points with y = 0) is represented as an Organismo with a moveProbability of 0, the
+ * default name "filler" and the default species "filler". 
+ * 
+ * @author Rocco Barbini
+ * @see LinkedOrganism
+ */
 public class PlayingField {
 
 	// private fields
 	
-	private static final int defaultWidth = 20;
-	private static final int defaultHeight = 20;
-	private LinkedOrganism occupant[][]; // A grid of LinkedOrganisms
+		private static final int defaultWidth = 20;
+		private static final int defaultHeight = 20;
+		private int xLength, yLength; // The length of X and Y
+		
+		// Within the class, the actual coordinates are not set as [x][y] but as [y][x], so that the first index
+		// actually represents the height (which is more intuitive to visualise, but less intuitive to code).
+		// All methods MUST keep this into account and use the (x, y) coordinates inverted.
+		private LinkedOrganism occupant[][]; // A grid of LinkedOrganisms
 	
+	// Constructors
+		
+		public PlayingField() {
+			this(defaultHeight, defaultWidth);
+		}
+		
+		public PlayingField(int x, int y) {
+			this.occupant = new LinkedOrganism[y][x];
+			this.xLength = x;
+			this.yLength = y;
+		}
+		
 	// Accessors
 	
-	/**
-	 * Returns the occupant of a specific cell, not a safe copy. The inversion of the coordinates is managed by the funcion,
-	 * so the caller does not have to bother with it.
-	 * @param posX
-	 * @param posY
-	 * @return	the actual address to the occupant at posX, posY, NOT a safe copy
-	 */
-	public LinkedOrganism getOccupant(int posX, int posY){
-		return occupant[posY][posX];
-	}
-
-	public PlayingField() {
-		this(defaultHeight, defaultWidth);
-	}
-	
-	public PlayingField(int w, int h) {
-		this.occupant = new LinkedOrganism[h][w];
-	}
+		/**
+		 * Returns the occupant of a specific cell, not a safe copy.
+		 * @param posX	the x coordinate of the element in the playing field
+		 * @param posY	the y coordinate of the element in the playing field
+		 * @return	the actual address to the occupant at posX, posY, NOT a safe copy
+		 */
+		public LinkedOrganism getOccupant(int posX, int posY){
+			try{
+				if(posX < 0 || posY < 0 || posX >= xLength || posY >= yLength){
+					throw new Exception("Coordinates out of bounds.");
+				}
+			} catch (Exception e){
+				System.out.println("Critical error: " + e.getMessage());
+				System.out.println("Stopping execution");
+				System.exit(0);
+			}
+			return occupant[posY][posX];
+		}
+		
+		/**
+		 * @return the length of the X axis (horizontal)
+		 */
+		public int getXLength(){
+			return xLength;
+		}
+		
+		/**
+		 * @return the length of the Y axis (vertical)
+		 */
+		public int getYLength(){
+			return yLength;
+		}
 	
 	// Public methods
 	

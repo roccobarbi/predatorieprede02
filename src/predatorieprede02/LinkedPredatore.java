@@ -117,10 +117,7 @@ public class LinkedPredatore extends LinkedOrganism {
 						setPosY(newY);
 					} else if(field.getOccupant(newX, newY).reveal() instanceof Preda){
 						field.getOccupant(newX, newY).kill();
-						System.out.println(getPosX() + "," + getPosY() + " : " + field.getOccupant(getPosX(), getPosY())); // DEBUG
 						field.move(getPosX(), getPosY(), newX, newY);
-						System.out.println(newX + "," + newY + " : " + field.getOccupant(newX, newY)); // DEBUG
-						System.out.println("this: " + this); // DEBUG
 						// Check that the movement was performed correctly
 						if(field.getOccupant(newX, newY) != this || field.getOccupant(getPosX(), getPosY()) != null){
 							errorMessage = "Move failed (with Preda): the field was not updated!";

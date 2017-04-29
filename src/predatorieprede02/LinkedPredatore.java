@@ -94,12 +94,20 @@ public class LinkedPredatore extends LinkedOrganism {
 						errorMessage = "Invalid move: " + dest + "! Should have been 1, 3, 5 or 7.";
 						throw new Exception(errorMessage);
 					}
+					
 					// Check: the position can't be negative
 					if(newX < 0 || newY < 0){
 						errorMessage = "Invalid move: " + dest + "! X or Y coordinate lower than 0.";
 						throw new Exception(errorMessage);
 					}
-					if(field.getOccupant(newX, newY) == null){
+					// Check: the position can't be too large
+					if(newX >= field.getXLength() || newY >= field.getYLength()){
+						errorMessage = "Invalid move: " + dest + "! X or Y coordinate greater than top limit.";
+						throw new Exception(errorMessage);
+					}
+					
+					// Check if there is a Preda at destination and act accordingly
+					if(field.getOccupant(newX, newY) == null){ // There is no Preda
 						field.move(posX, posY, newX, newY);
 						// Check that the movement was performed correctly
 						if(field.getOccupant(newX, newY) != this || field.getOccupant(posX, posY) != null){
@@ -135,7 +143,7 @@ public class LinkedPredatore extends LinkedOrganism {
 			
 			// Spawn
 			if(self.getIsAlive()){
-				grid = field.lookAround(posX, posY);
+				grid = field.lookAround(getPosX(), getPosY());
 				dest = self.chooseSpawn(grid);
 				if(dest > -1){
 					try{
@@ -159,7 +167,12 @@ public class LinkedPredatore extends LinkedOrganism {
 						// Create the new Predatore
 						pup = new Predatore(reveal());
 						lPup = new LinkedPredatore(pup, newX, newY, field);
-						// Add it to the list
+						// Safety check: if there is no list, create a new one
+						if(getList() == null){
+							LinkedOrganisms list = new LinkedOrganisms();
+							setList(list);
+						}
+						// Add the new Predatore to the list
 						getList().add(lPup);
 						// Check that the addition to the list was performed correctly
 						if(!getList().isHere(lPup)){
@@ -174,7 +187,7 @@ public class LinkedPredatore extends LinkedOrganism {
 							throw new Exception(errorMessage);
 						}
 					} catch (Exception e) {
-						System.out.println("Predatore " + this + " at " + posX + ", " + posY);
+						System.out.println("Predatore " + this + " at " + getPosX() + ", " + getPosY());
 						System.out.println("Trying to spawn Predatore at " + newX + ", " + newY);
 						System.out.println("CRITICAL EXCEPTION DURING SPAWN: " + e);
 						System.out.println("SHUTTING DOWN THE APPLICATION!");

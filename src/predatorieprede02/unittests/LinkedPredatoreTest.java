@@ -23,12 +23,11 @@ public class LinkedPredatoreTest {
 	@Test
 	public void testAct() {
 		// Set up List, Field, Predatore, LinkedPredatore and filler Organismo
-		LinkedOrganisms list = new LinkedOrganisms();
 		PlayingField field = new PlayingField();
 		Predatore pup = new Predatore("noname", 'X', "predatore", 0, 100, 4);
-		LinkedPredatore predatore = new LinkedPredatore(pup, 0, 0, field, list); // Top left corner
+		LinkedPredatore predatore = new LinkedPredatore(pup, 0, 0, field); // Top left corner
 		Organismo filler = new Organismo();
-		LinkedOrganism lFiller = new LinkedOrganism(filler, 1, 0, field, list); // To the right of the LinkedPredatore
+		LinkedOrganism lFiller = new LinkedOrganism(filler, 1, 0, field); // To the right of the LinkedPredatore
 		// Basic checks
 		assertTrue("predatore was not created where it should be", field.getOccupant(0, 0) == predatore);
 		assertTrue("predatore has a wrong move probability", field.getOccupant(0, 0).reveal().getMoveProbability() == 100);
@@ -38,15 +37,18 @@ public class LinkedPredatoreTest {
 		field.print(); // Visual check before acting
 		predatore.act(); // MOVE AND SPAWN
 		field.print(); // Visual check after acting
+		// Visual check: the field should have been updated properly
+			Organismo grid[] = field.lookAround(predatore.getPosX(), predatore.getPosY());
+			for(int i = 0; i < grid.length; i++) System.out.println(i + " : " + grid[i]);
 		// Predatore can only move to 0,1
-		assertFalse("predatore is still at origin", field.getOccupant(0, 0) == predatore);
-		assertTrue("predatore has not moved to adjacent cell", field.getOccupant(0, 1) == predatore);
-		assertFalse("predatore has moved to occcupied cell (not Preda)", field.getOccupant(1, 0) == predatore);
+			assertFalse("predatore is still at origin", field.getOccupant(0, 0) == predatore);
+			assertTrue("predatore has not moved to adjacent cell", field.getOccupant(0, 1) == predatore);
+			assertFalse("predatore has moved to occcupied cell (not Preda)", field.getOccupant(1, 0) == predatore);
 		// Predatore can only move to 0,1, so it can only spawn to (0,0), (1,1) or (0,2)
-		assertTrue("predatore in (0,1) has not spawned", field.getOccupant(0, 0) != null || field.getOccupant(1, 1) != null || field.getOccupant(0, 2) != null);;
-		assertTrue("predatore has not spawned a Predatore", (field.getOccupant(0, 0) != null && field.getOccupant(0, 0).reveal() instanceof Predatore) ||
-				(field.getOccupant(1, 1) != null && field.getOccupant(1, 1).reveal() instanceof Predatore) ||
-				(field.getOccupant(0, 2) != null && field.getOccupant(0, 2).reveal() instanceof Predatore));
+			assertTrue("predatore in (0,1) has not spawned", field.getOccupant(0, 0) != null || field.getOccupant(1, 1) != null || field.getOccupant(0, 2) != null);;
+			assertTrue("predatore has not spawned a Predatore", (field.getOccupant(0, 0) != null && field.getOccupant(0, 0).reveal() instanceof Predatore) ||
+					(field.getOccupant(1, 1) != null && field.getOccupant(1, 1).reveal() instanceof Predatore) ||
+					(field.getOccupant(0, 2) != null && field.getOccupant(0, 2).reveal() instanceof Predatore));
 	}
 
 	@Test

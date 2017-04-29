@@ -35,6 +35,19 @@ public class PlayingFieldTest {
 		assertTrue("occupied slot is null", grid[4] != null);
 		assertTrue("occupied slot does not contain Organismo", grid[4] instanceof Organismo);
 		
+		// Create a 1x1 field and look around: there should be no nulls.
+			field = new PlayingField(1, 1);
+			grid = field.lookAround(0, 0);
+			int fieldsNull = 0;
+			for(int i = 0; i < grid.length; i++) if(grid[i] == null) fieldsNull++;
+			assertTrue("there are null fields out of bound", fieldsNull == 0);
+		
+		// Create a 3x3 field and look around the center: all fields should be null.
+			field = new PlayingField(3, 3);
+			grid = field.lookAround(1, 1);
+			fieldsNull = 0;
+			for(int i = 0; i < grid.length; i++) if(grid[i] == null) fieldsNull++;
+			assertTrue("good fields are not null", fieldsNull == grid.length);
 	}
 
 	@Test
@@ -42,10 +55,12 @@ public class PlayingFieldTest {
 		PlayingField field = new PlayingField();
 		Organismo organismo = new Organismo();
 		LinkedOrganism pup = new LinkedOrganism(organismo, 1, 1, field);
-		assertTrue("occupant is not where it's supposted to be", pup == field.getOccupant(1, 1));
+		// Basic checks
+		assertTrue("occupant is not at source", pup == field.getOccupant(1, 1));
+		assertTrue("designated destination is not null", field.getOccupant(1, 0) == null);
 		field.move(1, 1, 1, 0);
-		assertTrue("occupant is not where it's supposted to be", pup == field.getOccupant(1, 0));
-		assertTrue("previous position is not null", field.getOccupant(1, 1) == null);
+		assertTrue("occupant is not at destination", pup == field.getOccupant(1, 0));
+		assertTrue("source is not null", field.getOccupant(1, 1) == null);
 	}
 
 	@Test

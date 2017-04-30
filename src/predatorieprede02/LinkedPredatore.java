@@ -130,7 +130,6 @@ public class LinkedPredatore extends LinkedOrganism {
 						throw new Exception(errorMessage);
 					}
 				} catch (Exception e) {
-					field.print();
 					System.out.println("Predatore " + this + " at " + getPosX() + ", " + getPosY());
 					System.out.println("CRITICAL EXCEPTION DURING MOVEMENT: " + e);
 					System.out.println("SHUTTING DOWN THE APPLICATION!");

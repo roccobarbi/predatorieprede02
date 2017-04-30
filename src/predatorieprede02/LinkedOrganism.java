@@ -252,7 +252,6 @@ public class LinkedOrganism {
 					setPosX(newX);
 					setPosY(newY);
 				} catch (Exception e){
-					field.print();
 					System.out.println("Organismo " + this + " at " + posX + ", " + posY);
 					System.out.println("CRITICAL EXCEPTION DURING MOVEMENT: " + e);
 					System.out.println("SHUTTING DOWN THE APPLICATION!");

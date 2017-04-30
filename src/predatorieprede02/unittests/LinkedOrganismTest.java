@@ -22,17 +22,22 @@ public class LinkedOrganismTest {
 
 	@Test
 	public void testAct() {
+		System.out.println("testAct start");
 		LinkedOrganisms list = new LinkedOrganisms();
 		PlayingField field = new PlayingField();
 		Organismo pup = new Organismo("noname", 'o', "organismo", 0, 100);
 		LinkedOrganism organismo = new LinkedOrganism(pup, 0, 0, field, list);
 		Organismo filler = new Organismo();
-		LinkedOrganism lFiller = new LinkedOrganism(filler, 1, 0, field, list);
+		LinkedOrganism lFiller = new LinkedOrganism(filler, 1, 0, field);
 		assertTrue("organismo was not created where it should be", field.getOccupant(0, 0) == organismo);
 		assertTrue("organismo has a wrong move probability", field.getOccupant(0, 0).reveal().getMoveProbability() == 100);
 		assertTrue("organismo is not of type Organismo", field.getOccupant(0, 0).reveal() instanceof Organismo);
 		assertTrue("lFiller was not created where it should be", field.getOccupant(1, 0) == lFiller);
+		System.out.println("acting now");
+		System.out.println("List length before acting: " + list.getLength());
 		organismo.act();
+		System.out.println("List length after acting: " + list.getLength());
+		System.out.println("acting done");
 		assertFalse("organismo is still at origin", field.getOccupant(0, 0) == organismo);
 		assertTrue("organismo has not moved to adjacent cell", field.getOccupant(0, 1) == organismo || field.getOccupant(1, 0) == organismo);
 		assertTrue("organismo has not spawned", field.getOccupant(0, 0) != null || field.getOccupant(1, 1) != null ||
@@ -41,6 +46,8 @@ public class LinkedOrganismTest {
 				(field.getOccupant(1, 1) != null && field.getOccupant(1, 1).reveal() instanceof Organismo) ||
 				(field.getOccupant(2, 0) != null && field.getOccupant(2, 0).reveal() instanceof Organismo) ||
 				(field.getOccupant(0, 2) != null && field.getOccupant(0, 2).reveal() instanceof Organismo));
+		assertTrue("list has wrong length: " + list.getLength(), list.getLength() == 2);
+		System.out.println("testAct end");
 	}
 	
 	@Test

@@ -75,18 +75,20 @@ public class LinkedOrganisms {
 		 * @param organismo	the new LinkedOrganism that needs to be added to the list
 		 */
 		public void add(LinkedOrganism organismo){
-			if (length == 0) {
-				first = organismo;
-			} else if (length == 1) {
-				organismo.setPrev(first);
-				first.setNext(organismo);
-				last = organismo;
-			} else {
-				organismo.setPrev(last);
-				last.setNext(organismo);
-				last = organismo;
+			if(!isHere(organismo)){
+				if (length == 0) {
+					first = organismo;
+				} else if (length == 1) {
+					organismo.setPrev(first);
+					first.setNext(organismo);
+					last = organismo;
+				} else {
+					organismo.setPrev(last);
+					last.setNext(organismo);
+					last = organismo;
+				}
+				if(organismo.getList() != this) organismo.setList(this);
 			}
-			if(organismo.getList() != this) organismo.setList(this);
 			length++;
 		}
 		

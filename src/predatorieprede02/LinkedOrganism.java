@@ -287,9 +287,9 @@ public class LinkedOrganism {
 					}
 					// Create the new Organismo
 					pup = self.copy();
-					lPup = new LinkedOrganism(pup, newY, newX, field);
+					lPup = new LinkedOrganism(pup, newX, newY, field);
 					// Add it to the list
-					list.add(lPup);
+					lPup.setList(list); // Calling setList and not add resolves the bug of the wrong list size
 					// Check that the addition to the list was performed correctly
 					if(!list.isHere(lPup)){
 						errorMessage = "Spawn failed: the list was not updated!";

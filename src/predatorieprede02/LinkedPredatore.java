@@ -172,7 +172,7 @@ public class LinkedPredatore extends LinkedOrganism {
 							setList(list);
 						}
 						// Add the new Predatore to the list
-						getList().add(lPup);
+						lPup.setList(getList()); // Calling setList and not add resolves the bug of the wrong list size
 						// Check that the addition to the list was performed correctly
 						if(!getList().isHere(lPup)){
 							errorMessage = "Spawn failed: the list was not updated!";

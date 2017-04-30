@@ -6,6 +6,7 @@ public class Play {
 
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in); 
+		int gameLength = 10;
 		
 		LinkedOrganisms prede = new LinkedOrganisms();
 		LinkedOrganisms predatori = new LinkedOrganisms();
@@ -18,6 +19,9 @@ public class Play {
 		// Default mode.
 		// TODO add different game modes
 		
+		// Initialising game in default mode
+		System.out.println("Initialising game in default mode");
+		
 		for(int i = 0; i < 5; i++){
 			predatorePup = new Predatore();
 			predatore = new LinkedPredatore(predatorePup, 0, i, field, predatori);
@@ -29,14 +33,23 @@ public class Play {
 		}
 		
 		field.shuffle();
+		
+		System.out.println("Game initialised in default mode.");
+		System.out.println("How many turns do you want to play?");
+		if(keyboard.hasNextInt()){
+			gameLength = keyboard.nextInt();
+		} else {
+			System.out.println("Invalid input: using default value of 10.");
+		}
+		keyboard.nextLine();
+		System.out.println("Please press enter to start.");
+		keyboard.nextLine();
+		
 		field.print();
 		
-		for(int i = 0; i < 10; i++){
+		for(int i = 0; i < gameLength; i++){
 			keyboard.nextLine();
 			predatori.act();
-			// for(int k = 0; k < 50; k++) System.out.println();
-			// field.print();
-			// keyboard.nextLine();
 			prede.act();
 			for(int k = 0; k < 50; k++) System.out.println();
 			field.print();

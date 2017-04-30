@@ -23,7 +23,7 @@ public class Play2 {
 		predatore.setList(predatori);
 		
 		for(int i = 0; i < 3; i++){
-			predaPup = new Preda("preda", 'o', "myPreda", 3, 50);
+			predaPup = new Preda("preda", 'o', "myPreda", 1, 50);
 			preda = new LinkedOrganism(predaPup, 0, i, field);
 			preda.setList(prede);
 		}
